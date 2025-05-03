@@ -182,4 +182,6 @@ UPDATE Producto SET estado = -1 WHERE codigo = 'HB7986';
 
 -- Visualizar productos
 SELECT * FROM Producto;
+SELECT * FROM Categoria;
+SELECT * FROM Proveedor;
 SELECT * FROM Empleado;

@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Informatica\\sis457\\Trabajo ferreteria\\sis457_ferreteria\\Ferreteria\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ADB8B360-361C-4120-AB11-1B7B7E57268F}|ClnFerreteria\\ClnFerreteria.csproj|d:\\informatica\\sis457\\trabajo ferreteria\\sis457_ferreteria\\ferreteria\\clnferreteria\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADB8B360-361C-4120-AB11-1B7B7E57268F}|ClnFerreteria\\ClnFerreteria.csproj|solutionrelative:clnferreteria\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "D:\\Informatica\\sis457\\Trabajo ferreteria\\sis457_ferreteria\\Ferreteria\\ClnFerreteria\\Class1.cs",
+              "RelativeDocumentMoniker": "ClnFerreteria\\Class1.cs",
+              "ToolTip": "D:\\Informatica\\sis457\\Trabajo ferreteria\\sis457_ferreteria\\Ferreteria\\ClnFerreteria\\Class1.cs",
+              "RelativeToolTip": "ClnFerreteria\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T19:40:42.726Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
