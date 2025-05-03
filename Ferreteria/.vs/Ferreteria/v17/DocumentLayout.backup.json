@@ -1,10 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Informatica\\sis457\\Trabajo ferreteria\\sis457_ferreteria\\Ferreteria\\",
+  "WorkspaceRootPath": "C:\\proyecto sis457\\sis457_ferreteria\\Ferreteria\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ADB8B360-361C-4120-AB11-1B7B7E57268F}|ClnFerreteria\\ClnFerreteria.csproj|d:\\informatica\\sis457\\trabajo ferreteria\\sis457_ferreteria\\ferreteria\\clnferreteria\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ADB8B360-361C-4120-AB11-1B7B7E57268F}|ClnFerreteria\\ClnFerreteria.csproj|solutionrelative:clnferreteria\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A8DDB991-E039-43AA-B2B3-D2F5F2B19680}|CpFerreteria\\CpFerreteria.csproj|c:\\proyecto sis457\\sis457_ferreteria\\ferreteria\\cpferreteria\\frmproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A8DDB991-E039-43AA-B2B3-D2F5F2B19680}|CpFerreteria\\CpFerreteria.csproj|solutionrelative:cpferreteria\\frmproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8DDB991-E039-43AA-B2B3-D2F5F2B19680}|CpFerreteria\\CpFerreteria.csproj|C:\\proyecto sis457\\sis457_ferreteria\\Ferreteria\\cpferreteria\\frmproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A8DDB991-E039-43AA-B2B3-D2F5F2B19680}|CpFerreteria\\CpFerreteria.csproj|solutionrelative:cpferreteria\\frmproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,20 +18,42 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "D:\\Informatica\\sis457\\Trabajo ferreteria\\sis457_ferreteria\\Ferreteria\\ClnFerreteria\\Class1.cs",
-              "RelativeDocumentMoniker": "ClnFerreteria\\Class1.cs",
-              "ToolTip": "D:\\Informatica\\sis457\\Trabajo ferreteria\\sis457_ferreteria\\Ferreteria\\ClnFerreteria\\Class1.cs",
-              "RelativeToolTip": "ClnFerreteria\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "FrmProveedor.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\proyecto sis457\\sis457_ferreteria\\Ferreteria\\CpFerreteria\\FrmProveedor.cs",
+              "RelativeDocumentMoniker": "CpFerreteria\\FrmProveedor.cs",
+              "ToolTip": "C:\\proyecto sis457\\sis457_ferreteria\\Ferreteria\\CpFerreteria\\FrmProveedor.cs [Dise\u00F1o]",
+              "RelativeToolTip": "CpFerreteria\\FrmProveedor.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T19:40:42.726Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-03T20:00:06.694Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FrmProducto.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\proyecto sis457\\sis457_ferreteria\\Ferreteria\\CpFerreteria\\FrmProducto.cs",
+              "RelativeDocumentMoniker": "CpFerreteria\\FrmProducto.cs",
+              "ToolTip": "C:\\proyecto sis457\\sis457_ferreteria\\Ferreteria\\CpFerreteria\\FrmProducto.cs [Dise\u00F1o]",
+              "RelativeToolTip": "CpFerreteria\\FrmProducto.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-03T19:50:24.77Z"
             }
           ]
         }
