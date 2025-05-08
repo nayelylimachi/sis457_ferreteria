@@ -53,6 +53,8 @@
             this.txtParametro = new System.Windows.Forms.TextBox();
             this.lblParametro = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.txtCategoria = new System.Windows.Forms.TextBox();
+            this.lblCategoria = new System.Windows.Forms.Label();
             this.gbxDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSaldo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioVenta)).BeginInit();
@@ -63,6 +65,8 @@
             // 
             // gbxDatos
             // 
+            this.gbxDatos.Controls.Add(this.txtCategoria);
+            this.gbxDatos.Controls.Add(this.lblCategoria);
             this.gbxDatos.Controls.Add(this.btnCancelar);
             this.gbxDatos.Controls.Add(this.btnGuardar);
             this.gbxDatos.Controls.Add(this.nudSaldo);
@@ -79,7 +83,7 @@
             this.gbxDatos.Margin = new System.Windows.Forms.Padding(4);
             this.gbxDatos.Name = "gbxDatos";
             this.gbxDatos.Padding = new System.Windows.Forms.Padding(4);
-            this.gbxDatos.Size = new System.Drawing.Size(1060, 142);
+            this.gbxDatos.Size = new System.Drawing.Size(1060, 149);
             this.gbxDatos.TabIndex = 13;
             this.gbxDatos.TabStop = false;
             this.gbxDatos.Text = "Datos";
@@ -88,7 +92,7 @@
             // 
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(922, 77);
+            this.btnCancelar.Location = new System.Drawing.Point(922, 87);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
@@ -102,7 +106,7 @@
             // 
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(922, 19);
+            this.btnGuardar.Location = new System.Drawing.Point(784, 87);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
@@ -169,7 +173,7 @@
             "Paquete",
             "Pliego",
             "Unidad"});
-            this.cbxUnidadMedida.Location = new System.Drawing.Point(210, 87);
+            this.cbxUnidadMedida.Location = new System.Drawing.Point(210, 111);
             this.cbxUnidadMedida.Margin = new System.Windows.Forms.Padding(4);
             this.cbxUnidadMedida.Name = "cbxUnidadMedida";
             this.cbxUnidadMedida.Size = new System.Drawing.Size(207, 24);
@@ -178,7 +182,7 @@
             // lblUnidadMedida
             // 
             this.lblUnidadMedida.AutoSize = true;
-            this.lblUnidadMedida.Location = new System.Drawing.Point(62, 90);
+            this.lblUnidadMedida.Location = new System.Drawing.Point(62, 114);
             this.lblUnidadMedida.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUnidadMedida.Name = "lblUnidadMedida";
             this.lblUnidadMedida.Size = new System.Drawing.Size(122, 16);
@@ -197,7 +201,7 @@
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(102, 55);
+            this.lblDescripcion.Location = new System.Drawing.Point(102, 54);
             this.lblDescripcion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(82, 16);
@@ -207,7 +211,7 @@
             // txtCodigo
             // 
             this.txtCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCodigo.Location = new System.Drawing.Point(210, 16);
+            this.txtCodigo.Location = new System.Drawing.Point(210, 21);
             this.txtCodigo.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodigo.MaxLength = 20;
             this.txtCodigo.Name = "txtCodigo";
@@ -217,7 +221,7 @@
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(130, 16);
+            this.lblCodigo.Location = new System.Drawing.Point(130, 24);
             this.lblCodigo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(54, 16);
@@ -230,10 +234,10 @@
             this.pnlAcciones.Controls.Add(this.btnEliminar);
             this.pnlAcciones.Controls.Add(this.btnEditar);
             this.pnlAcciones.Controls.Add(this.btnNuevo);
-            this.pnlAcciones.Location = new System.Drawing.Point(23, 345);
+            this.pnlAcciones.Location = new System.Drawing.Point(31, 345);
             this.pnlAcciones.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAcciones.Name = "pnlAcciones";
-            this.pnlAcciones.Size = new System.Drawing.Size(1060, 58);
+            this.pnlAcciones.Size = new System.Drawing.Size(1044, 58);
             this.pnlAcciones.TabIndex = 12;
             // 
             // btnCerrar
@@ -353,7 +357,7 @@
             // 
             // lblTitulo
             // 
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(16, 21);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
@@ -362,11 +366,31 @@
             this.lblTitulo.Text = "Productos";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // txtCategoria
+            // 
+            this.txtCategoria.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCategoria.Location = new System.Drawing.Point(210, 81);
+            this.txtCategoria.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCategoria.MaxLength = 20;
+            this.txtCategoria.Name = "txtCategoria";
+            this.txtCategoria.Size = new System.Drawing.Size(207, 22);
+            this.txtCategoria.TabIndex = 13;
+            // 
+            // lblCategoria
+            // 
+            this.lblCategoria.AutoSize = true;
+            this.lblCategoria.Location = new System.Drawing.Point(115, 84);
+            this.lblCategoria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(69, 16);
+            this.lblCategoria.TabIndex = 12;
+            this.lblCategoria.Text = "Categoria:";
+            // 
             // FrmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.NavajoWhite;
+            this.BackColor = System.Drawing.Color.Linen;
             this.ClientSize = new System.Drawing.Size(1108, 567);
             this.Controls.Add(this.gbxDatos);
             this.Controls.Add(this.pnlAcciones);
@@ -421,6 +445,8 @@
         private System.Windows.Forms.TextBox txtParametro;
         private System.Windows.Forms.Label lblParametro;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.TextBox txtCategoria;
+        private System.Windows.Forms.Label lblCategoria;
     }
 }
 
