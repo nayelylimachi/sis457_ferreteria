@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8ed01676df2c446192c1f5dd23053c15" Name="Diagram1" ZoomLevel="40">
+      <Diagram DiagramId="8ed01676df2c446192c1f5dd23053c15" Name="Diagram1" ZoomLevel="70">
         <EntityTypeShape EntityType="FerreteriaModel.Categoria" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="FerreteriaModel.Cliente" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
         <EntityTypeShape EntityType="FerreteriaModel.Empleado" Width="1.5" PointX="5.75" PointY="6" IsExpanded="true" />
@@ -19,6 +19,7 @@
         <AssociationConnector Association="FerreteriaModel.fk_Producto_Proveedor" ManuallyRouted="false" />
         <AssociationConnector Association="FerreteriaModel.fk_VentaDetalle_Producto" ManuallyRouted="false" />
         <AssociationConnector Association="FerreteriaModel.fk_VentaDetalle_Venta" ManuallyRouted="false" />
+        <AssociationConnector Association="FerreteriaModel.fk_Venta_Usuario" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

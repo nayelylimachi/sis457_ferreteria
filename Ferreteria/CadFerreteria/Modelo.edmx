@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="FerreteriaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="FerreteriaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categoria">
           <Key>
             <PropertyRef Name="id" />
@@ -91,6 +91,7 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idCliente" Type="int" Nullable="false" />
+          <Property Name="idUsuario" Type="int" Nullable="false" />
           <Property Name="fecha" Type="date" Nullable="false" />
           <Property Name="transaccion" Type="int" Nullable="false" />
           <Property Name="usuarioRegistro" Type="varchar" MaxLength="50" Nullable="false" />
@@ -135,7 +136,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_Usuario_Emplea">
+        <Association Name="fk_Usuario_Empleado">
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
           <ReferentialConstraint>
@@ -156,6 +157,18 @@
             </Principal>
             <Dependent Role="Venta">
               <PropertyRef Name="idCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Venta_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Venta" Type="Self.Venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Venta">
+              <PropertyRef Name="idUsuario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -206,12 +219,16 @@
             <End Role="Proveedor" EntitySet="Proveedor" />
             <End Role="Producto" EntitySet="Producto" />
           </AssociationSet>
-          <AssociationSet Name="fk_Usuario_Emplea" Association="Self.fk_Usuario_Emplea">
+          <AssociationSet Name="fk_Usuario_Empleado" Association="Self.fk_Usuario_Empleado">
             <End Role="Empleado" EntitySet="Empleado" />
             <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
           <AssociationSet Name="fk_Venta_Cliente" Association="Self.fk_Venta_Cliente">
             <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Venta" EntitySet="Venta" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Venta_Usuario" Association="Self.fk_Venta_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Venta" EntitySet="Venta" />
           </AssociationSet>
           <AssociationSet Name="fk_VentaDetalle_Producto" Association="Self.fk_VentaDetalle_Producto">
@@ -223,8 +240,7 @@
             <End Role="VentaDetalle" EntitySet="VentaDetalle" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FerreteriaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -315,6 +331,7 @@
           <Property Name="fechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="estado" Type="Int16" Nullable="false" />
           <NavigationProperty Name="Empleado" Relationship="Self.fk_Usuario_Emplea" FromRole="Usuario" ToRole="Empleado" />
+          <NavigationProperty Name="Venta" Relationship="FerreteriaModel.fk_Venta_Usuario" FromRole="Usuario" ToRole="Venta" />
         </EntityType>
         <EntityType Name="Venta">
           <Key>
@@ -329,6 +346,8 @@
           <Property Name="estado" Type="Int16" Nullable="false" />
           <NavigationProperty Name="Cliente" Relationship="Self.fk_Venta_Cliente" FromRole="Venta" ToRole="Cliente" />
           <NavigationProperty Name="VentaDetalle" Relationship="Self.fk_VentaDetalle_Venta" FromRole="Venta" ToRole="VentaDetalle" />
+          <Property Name="idUsuario" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="FerreteriaModel.fk_Venta_Usuario" FromRole="Venta" ToRole="Usuario" />
         </EntityType>
         <EntityType Name="VentaDetalle">
           <Key>
@@ -452,11 +471,15 @@
             <End Role="VentaDetalle" EntitySet="VentaDetalle" />
           </AssociationSet>
           <FunctionImport Name="paEmpleadoLista" ReturnType="Collection(FerreteriaModel.paEmpleadoLista_Result)">
-            <Parameter Name="parametro" Mode="In" Type="String" />
+          <Parameter Name="parametro" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="paProductoListar" ReturnType="Collection(FerreteriaModel.paProductoListar_Result)">
-            <Parameter Name="parametro" Mode="In" Type="String" />
+          <Parameter Name="parametro" Mode="In" Type="String" />
           </FunctionImport>
+          <AssociationSet Name="fk_Venta_Usuario" Association="FerreteriaModel.fk_Venta_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Venta" EntitySet="Venta" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="paEmpleadoLista_Result">
           <Property Type="Int32" Name="id" Nullable="false" />
@@ -485,6 +508,18 @@
           <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
           <Property Type="Int16" Name="estado" Nullable="false" />
         </ComplexType>
+        <Association Name="fk_Venta_Usuario">
+          <End Type="FerreteriaModel.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="FerreteriaModel.Venta" Role="Venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Venta">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -580,6 +615,7 @@
           <EntitySetMapping Name="Venta">
             <EntityTypeMapping TypeName="FerreteriaModel.Venta">
               <MappingFragment StoreEntitySet="Venta">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="idCliente" ColumnName="idCliente" />
                 <ScalarProperty Name="fecha" ColumnName="fecha" />
