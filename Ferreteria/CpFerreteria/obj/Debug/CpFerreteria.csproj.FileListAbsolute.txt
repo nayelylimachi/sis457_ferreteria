@@ -1,0 +1,11 @@
+D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreteria\bin\Debug\CpFerreteria.exe.config
+D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreteria\bin\Debug\CpFerreteria.exe
+D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreteria\bin\Debug\CpFerreteria.pdb
+D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreteria\obj\Debug\CpFerreteria.csproj.AssemblyReference.cache
+D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreteria\obj\Debug\CpFerreteria.FrmProducto.resources
+D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreteria\obj\Debug\CpFerreteria.Properties.Resources.resources
+D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreteria\obj\Debug\CpFerreteria.csproj.GenerateResource.cache
+D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreteria\obj\Debug\CpFerreteria.csproj.CoreCompileInputs.cache
+D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreteria\obj\Debug\CpFerreteria.exe
+D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreteria\obj\Debug\CpFerreteria.pdb
+D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreteria\obj\Debug\CpFerreteria.FrmCliente.resources
