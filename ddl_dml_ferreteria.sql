@@ -74,15 +74,17 @@ CREATE TABLE Usuario (
 	idEmpleado INT NOT NULL,
 	usuario VARCHAR(20) NOT NULL,
 	contraseña VARCHAR(250) NOT NULL,
-	CONSTRAINT fk_Usuario_Emplea FOREIGN KEY(idEmpleado) REFERENCES Empleado(id)
+	CONSTRAINT fk_Usuario_Empleado FOREIGN KEY(idEmpleado) REFERENCES Empleado(id)
 );
 
 CREATE TABLE Venta(
 	id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	idCliente INT NOT NULL,
+	idUsuario INT NOT NULL,
 	fecha DATE NOT NULL DEFAULT GETDATE(),
 	transaccion INT NOT NULL,
-	CONSTRAINT fk_Venta_Cliente FOREIGN KEY(idCliente) REFERENCES Cliente(id)
+	CONSTRAINT fk_Venta_Cliente FOREIGN KEY(idCliente) REFERENCES Cliente(id),
+	CONSTRAINT fk_Venta_Usuario FOREIGN KEY(idUsuario) REFERENCES Usuario(id)
 );
 
 CREATE TABLE VentaDetalle(

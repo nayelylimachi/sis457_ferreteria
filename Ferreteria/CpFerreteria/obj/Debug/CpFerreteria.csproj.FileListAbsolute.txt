@@ -9,3 +9,15 @@ D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreter
 D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreteria\obj\Debug\CpFerreteria.exe
 D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreteria\obj\Debug\CpFerreteria.pdb
 D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreteria\obj\Debug\CpFerreteria.FrmCliente.resources
+D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreteria\bin\Debug\CadFerreteria.dll
+D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreteria\bin\Debug\ClnFerreteria.dll
+D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreteria\bin\Debug\EntityFramework.dll
+D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreteria\bin\Debug\EntityFramework.SqlServer.dll
+D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreteria\bin\Debug\CadFerreteria.pdb
+D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreteria\bin\Debug\CadFerreteria.dll.config
+D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreteria\bin\Debug\ClnFerreteria.pdb
+D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreteria\bin\Debug\ClnFerreteria.dll.config
+D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreteria\bin\Debug\EntityFramework.xml
+D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreteria\bin\Debug\EntityFramework.SqlServer.xml
+D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreteria\obj\Debug\CpFerreteria.FrmVenta.resources
+D:\Informatica\sis457\Trabajo ferreteria\sis457_ferreteria\Ferreteria\CpFerreteria\obj\Debug\CpFerret.A7FCED0A.Up2Date
