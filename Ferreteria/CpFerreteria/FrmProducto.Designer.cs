@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProducto));
             this.gbxDatos = new System.Windows.Forms.GroupBox();
+            this.txtCategoria = new System.Windows.Forms.TextBox();
+            this.lblCategoria = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.nudSaldo = new System.Windows.Forms.NumericUpDown();
@@ -53,8 +55,6 @@
             this.txtParametro = new System.Windows.Forms.TextBox();
             this.lblParametro = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.txtCategoria = new System.Windows.Forms.TextBox();
-            this.lblCategoria = new System.Windows.Forms.Label();
             this.gbxDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSaldo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioVenta)).BeginInit();
@@ -88,6 +88,26 @@
             this.gbxDatos.TabStop = false;
             this.gbxDatos.Text = "Datos";
             // 
+            // txtCategoria
+            // 
+            this.txtCategoria.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCategoria.Location = new System.Drawing.Point(210, 81);
+            this.txtCategoria.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCategoria.MaxLength = 20;
+            this.txtCategoria.Name = "txtCategoria";
+            this.txtCategoria.Size = new System.Drawing.Size(207, 22);
+            this.txtCategoria.TabIndex = 13;
+            // 
+            // lblCategoria
+            // 
+            this.lblCategoria.AutoSize = true;
+            this.lblCategoria.Location = new System.Drawing.Point(115, 84);
+            this.lblCategoria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(69, 16);
+            this.lblCategoria.TabIndex = 12;
+            this.lblCategoria.Text = "Categoria:";
+            // 
             // btnCancelar
             // 
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
@@ -101,6 +121,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
@@ -253,6 +274,7 @@
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnEliminar
             // 
@@ -295,6 +317,7 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // gbxLista
             // 
@@ -326,7 +349,7 @@
             // 
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(952, 71);
+            this.btnBuscar.Location = new System.Drawing.Point(963, 63);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
@@ -366,26 +389,6 @@
             this.lblTitulo.Text = "Productos";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtCategoria
-            // 
-            this.txtCategoria.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCategoria.Location = new System.Drawing.Point(210, 81);
-            this.txtCategoria.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCategoria.MaxLength = 20;
-            this.txtCategoria.Name = "txtCategoria";
-            this.txtCategoria.Size = new System.Drawing.Size(207, 22);
-            this.txtCategoria.TabIndex = 13;
-            // 
-            // lblCategoria
-            // 
-            this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Location = new System.Drawing.Point(115, 84);
-            this.lblCategoria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(69, 16);
-            this.lblCategoria.TabIndex = 12;
-            this.lblCategoria.Text = "Categoria:";
-            // 
             // FrmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -407,6 +410,7 @@
             this.Name = "FrmProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "::: Ferreteria - Productos :::";
+            this.Load += new System.EventHandler(this.FrmProducto_Load);
             this.gbxDatos.ResumeLayout(false);
             this.gbxDatos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSaldo)).EndInit();

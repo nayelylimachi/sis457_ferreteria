@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVenta));
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.dgvDetalleVenta = new System.Windows.Forms.DataGridView();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblCiNit = new System.Windows.Forms.Label();
             this.txtCiNit = new System.Windows.Forms.TextBox();
@@ -49,19 +48,22 @@
             this.txbPrecio = new System.Windows.Forms.TextBox();
             this.lblPrecio = new System.Windows.Forms.Label();
             this.txbTotal = new System.Windows.Forms.TextBox();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnRegistrarVenta = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.gbxCliente = new System.Windows.Forms.GroupBox();
             this.gbxProducto = new System.Windows.Forms.GroupBox();
             this.gbxListaProductos = new System.Windows.Forms.GroupBox();
-            this.pnlAcciones = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleVenta)).BeginInit();
+            this.btnRegistrarVenta = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.txbEfectivo = new System.Windows.Forms.TextBox();
+            this.lblEfectivo = new System.Windows.Forms.Label();
+            this.txbCambio = new System.Windows.Forms.TextBox();
+            this.lblCambio = new System.Windows.Forms.Label();
+            this.dgvLista = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.ptbUsuario)).BeginInit();
             this.gbxCliente.SuspendLayout();
             this.gbxProducto.SuspendLayout();
             this.gbxListaProductos.SuspendLayout();
-            this.pnlAcciones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.SuspendLayout();
             // 
             // dtpFecha
@@ -84,27 +86,15 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             // 
-            // dgvDetalleVenta
-            // 
-            this.dgvDetalleVenta.AllowUserToAddRows = false;
-            this.dgvDetalleVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetalleVenta.Location = new System.Drawing.Point(55, 21);
-            this.dgvDetalleVenta.Name = "dgvDetalleVenta";
-            this.dgvDetalleVenta.ReadOnly = true;
-            this.dgvDetalleVenta.RowHeadersWidth = 51;
-            this.dgvDetalleVenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalleVenta.Size = new System.Drawing.Size(623, 136);
-            this.dgvDetalleVenta.TabIndex = 4;
-            // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(529, 166);
+            this.lblTotal.Location = new System.Drawing.Point(525, 166);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(43, 16);
+            this.lblTotal.Size = new System.Drawing.Size(47, 16);
             this.lblTotal.TabIndex = 5;
-            this.lblTotal.Text = "Total";
+            this.lblTotal.Text = "Total:";
             // 
             // lblCiNit
             // 
@@ -265,32 +255,6 @@
             this.txbTotal.TabIndex = 25;
             this.txbTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // btnCancelar
-            // 
-            this.btnCancelar.AutoSize = true;
-            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(385, 13);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(130, 44);
-            this.btnCancelar.TabIndex = 26;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // btnRegistrarVenta
-            // 
-            this.btnRegistrarVenta.AutoSize = true;
-            this.btnRegistrarVenta.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistrarVenta.Image")));
-            this.btnRegistrarVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegistrarVenta.Location = new System.Drawing.Point(169, 13);
-            this.btnRegistrarVenta.Name = "btnRegistrarVenta";
-            this.btnRegistrarVenta.Size = new System.Drawing.Size(147, 44);
-            this.btnRegistrarVenta.TabIndex = 27;
-            this.btnRegistrarVenta.Text = "Registrar Venta";
-            this.btnRegistrarVenta.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRegistrarVenta.UseVisualStyleBackColor = true;
-            // 
             // lblTitulo
             // 
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -336,31 +300,107 @@
             // 
             // gbxListaProductos
             // 
+            this.gbxListaProductos.Controls.Add(this.dgvLista);
+            this.gbxListaProductos.Controls.Add(this.txbCambio);
+            this.gbxListaProductos.Controls.Add(this.lblCambio);
+            this.gbxListaProductos.Controls.Add(this.txbEfectivo);
+            this.gbxListaProductos.Controls.Add(this.lblEfectivo);
             this.gbxListaProductos.Controls.Add(this.txbTotal);
             this.gbxListaProductos.Controls.Add(this.lblTotal);
-            this.gbxListaProductos.Controls.Add(this.dgvDetalleVenta);
             this.gbxListaProductos.Location = new System.Drawing.Point(0, 303);
             this.gbxListaProductos.Name = "gbxListaProductos";
-            this.gbxListaProductos.Size = new System.Drawing.Size(706, 192);
+            this.gbxListaProductos.Size = new System.Drawing.Size(706, 252);
             this.gbxListaProductos.TabIndex = 31;
             this.gbxListaProductos.TabStop = false;
             this.gbxListaProductos.Text = "Lista de Productos";
             // 
-            // pnlAcciones
+            // btnRegistrarVenta
             // 
-            this.pnlAcciones.Controls.Add(this.btnRegistrarVenta);
-            this.pnlAcciones.Controls.Add(this.btnCancelar);
-            this.pnlAcciones.Location = new System.Drawing.Point(0, 494);
-            this.pnlAcciones.Name = "pnlAcciones";
-            this.pnlAcciones.Size = new System.Drawing.Size(699, 72);
-            this.pnlAcciones.TabIndex = 32;
+            this.btnRegistrarVenta.AutoSize = true;
+            this.btnRegistrarVenta.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistrarVenta.Image")));
+            this.btnRegistrarVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegistrarVenta.Location = new System.Drawing.Point(750, 491);
+            this.btnRegistrarVenta.Name = "btnRegistrarVenta";
+            this.btnRegistrarVenta.Size = new System.Drawing.Size(147, 44);
+            this.btnRegistrarVenta.TabIndex = 33;
+            this.btnRegistrarVenta.Text = "Registrar Venta";
+            this.btnRegistrarVenta.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRegistrarVenta.UseVisualStyleBackColor = true;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.AutoSize = true;
+            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(966, 491);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(130, 44);
+            this.btnCancelar.TabIndex = 32;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // txbEfectivo
+            // 
+            this.txbEfectivo.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txbEfectivo.Location = new System.Drawing.Point(578, 191);
+            this.txbEfectivo.Name = "txbEfectivo";
+            this.txbEfectivo.ReadOnly = true;
+            this.txbEfectivo.Size = new System.Drawing.Size(100, 22);
+            this.txbEfectivo.TabIndex = 27;
+            this.txbEfectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblEfectivo
+            // 
+            this.lblEfectivo.AutoSize = true;
+            this.lblEfectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEfectivo.Location = new System.Drawing.Point(505, 194);
+            this.lblEfectivo.Name = "lblEfectivo";
+            this.lblEfectivo.Size = new System.Drawing.Size(67, 16);
+            this.lblEfectivo.TabIndex = 26;
+            this.lblEfectivo.Text = "Efectivo:";
+            // 
+            // txbCambio
+            // 
+            this.txbCambio.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txbCambio.Location = new System.Drawing.Point(578, 219);
+            this.txbCambio.Name = "txbCambio";
+            this.txbCambio.ReadOnly = true;
+            this.txbCambio.Size = new System.Drawing.Size(100, 22);
+            this.txbCambio.TabIndex = 29;
+            this.txbCambio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblCambio
+            // 
+            this.lblCambio.AutoSize = true;
+            this.lblCambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCambio.Location = new System.Drawing.Point(508, 219);
+            this.lblCambio.Name = "lblCambio";
+            this.lblCambio.Size = new System.Drawing.Size(64, 16);
+            this.lblCambio.TabIndex = 28;
+            this.lblCambio.Text = "Cambio:";
+            // 
+            // dgvLista
+            // 
+            this.dgvLista.AllowUserToAddRows = false;
+            this.dgvLista.AllowUserToDeleteRows = false;
+            this.dgvLista.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLista.Location = new System.Drawing.Point(13, 22);
+            this.dgvLista.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvLista.Name = "dgvLista";
+            this.dgvLista.ReadOnly = true;
+            this.dgvLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLista.Size = new System.Drawing.Size(677, 134);
+            this.dgvLista.TabIndex = 30;
             // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1108, 567);
-            this.Controls.Add(this.pnlAcciones);
+            this.Controls.Add(this.btnRegistrarVenta);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.gbxListaProductos);
             this.Controls.Add(this.gbxProducto);
             this.Controls.Add(this.gbxCliente);
@@ -376,7 +416,6 @@
             this.Name = "FrmVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "::: Ferreteria - Ventas :::";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleVenta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbUsuario)).EndInit();
             this.gbxCliente.ResumeLayout(false);
             this.gbxCliente.PerformLayout();
@@ -384,8 +423,7 @@
             this.gbxProducto.PerformLayout();
             this.gbxListaProductos.ResumeLayout(false);
             this.gbxListaProductos.PerformLayout();
-            this.pnlAcciones.ResumeLayout(false);
-            this.pnlAcciones.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -395,7 +433,6 @@
 
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.DataGridView dgvDetalleVenta;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblCiNit;
         private System.Windows.Forms.TextBox txtCiNit;
@@ -413,12 +450,16 @@
         private System.Windows.Forms.TextBox txbPrecio;
         private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.TextBox txbTotal;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnRegistrarVenta;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.GroupBox gbxCliente;
         private System.Windows.Forms.GroupBox gbxProducto;
         private System.Windows.Forms.GroupBox gbxListaProductos;
-        private System.Windows.Forms.Panel pnlAcciones;
+        private System.Windows.Forms.Button btnRegistrarVenta;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.TextBox txbCambio;
+        private System.Windows.Forms.Label lblCambio;
+        private System.Windows.Forms.TextBox txbEfectivo;
+        private System.Windows.Forms.Label lblEfectivo;
+        private System.Windows.Forms.DataGridView dgvLista;
     }
 }
