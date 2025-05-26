@@ -15,10 +15,10 @@ namespace CadFerreteria
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class FerreteriaEntities1 : DbContext
+    public partial class FerreteriaEntities : DbContext
     {
-        public FerreteriaEntities1()
-            : base("name=FerreteriaEntities1")
+        public FerreteriaEntities()
+            : base("name=FerreteriaEntities")
         {
         }
     

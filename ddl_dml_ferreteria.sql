@@ -134,14 +134,20 @@ ALTER TABLE VentaDetalle ADD estado SMALLINT NOT NULL DEFAULT 1;  -- -1ELIMINADO
 GO
 ALTER PROC paProductoListar @parametro VARCHAR(100)
 AS
-	SELECT *
-	FROM Producto
-	WHERE estado <> -1
-	  AND (codigo + descripcion + unidadMedida) LIKE '%' + @parametro + '%' + REPLACE(@parametro, ' ', '%') + '%'
-	ORDER BY estado DESC, descripcion ASC;
+BEGIN
+    SELECT *
+    FROM Producto
+    WHERE estado <> -1
+      AND (
+            codigo LIKE '%' + @parametro + '%'
+            OR descripcion LIKE '%' + @parametro + '%'
+            OR unidadMedida LIKE '%' + @parametro + '%'
+          )
+    ORDER BY estado DESC, descripcion ASC;
+END
 GO
 
-ALTER PROC paEmpleadoLista @parametro VARCHAR(100)
+ALTER PROC paEmpleadoListparaa @parametro VARCHAR(100)
 AS
 	SELECT e.*, u.usuario
 	FROM Empleado e
@@ -162,6 +168,8 @@ VALUES ('1234567', 'Juan', 'Perez', 'Muñoz', 'Calle Loa N° 50', 71717171, 'Caj
 INSERT INTO Usuario(idEmpleado, usuario, contraseña)
 VALUES (1, 'jperez', '123456'); -- Contraseña simple para pruebas
 
+UPDATE Usuario SET contraseña = 'Bwk06E2GcnE7m+nHi+A3IA==' WHERE id = 1; -- Actualizar usuario
+ 
 -- Insertar productos
 INSERT INTO Producto(idCategoria, idProveedor, codigo, descripcion, unidadMedida, saldo, precioVenta)
 VALUES (1, 1, 'PL0254', 'Martillo Mango de Madera', 'Unidad', 0, 36);
@@ -187,3 +195,4 @@ SELECT * FROM Producto;
 SELECT * FROM Categoria;
 SELECT * FROM Proveedor;
 SELECT * FROM Empleado;
+SELECT * FROM Usuario;
