@@ -41,7 +41,7 @@ namespace CpFerreteria
 
         private void FrmProducto_Load(object sender, EventArgs e)
         {
-            Size = new Size(1124, 450);
+            Size = new Size(1124, 445);
             listar();
         }
 
