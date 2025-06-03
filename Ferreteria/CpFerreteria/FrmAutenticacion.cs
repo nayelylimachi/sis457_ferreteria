@@ -56,7 +56,8 @@ namespace CpFerreteria
                     txtContraseña.Clear();
                     txtUsuario.Focus();
                     txtUsuario.SelectAll();
-                    new FrmPrincipal().ShowDialog();
+                    Hide(); // Ocultar el formulario de autenticación
+                    new FrmPrincipal(this).ShowDialog();
                 }
                 else
                     {
