@@ -164,11 +164,23 @@ EXEC paEmpleadoLista'';
 INSERT INTO Empleado(celulaIdentidad, nombre, primerApellido, segundoApellido, direccion, celular, cargo)
 VALUES ('1234567', 'Juan', 'Perez', 'Muñoz', 'Calle Loa N° 50', 71717171, 'Cajero');
 
+INSERT INTO Empleado(celulaIdentidad, nombre, primerApellido, segundoApellido, direccion, celular, cargo)
+VALUES ('7513756', 'Wilder Handel', '', 'Arciénega', 'Av. Circunvalación S/N', 67654550, 'Contador');
+
+INSERT INTO Empleado(celulaIdentidad, nombre, primerApellido, segundoApellido, direccion, celular, cargo)
+VALUES ('1234567', 'Juan', 'Perez', 'Muñoz', 'Calle Loa N° 50', 71717171, 'Cajero');
+
 -- Crear usuario para ese empleado
 INSERT INTO Usuario(idEmpleado, usuario, contraseña)
 VALUES (1, 'jperez', '123456'); -- Contraseña simple para pruebas
 
-UPDATE Usuario SET contraseña = 'Bwk06E2GcnE7m+nHi+A3IA==' WHERE id = 1; -- Actualizar usuario
+INSERT INTO Usuario(idEmpleado, usuario, contraseña)
+VALUES (2, 'wharcienega', '123456'); -- Contraseña simple para pruebas
+
+INSERT INTO Usuario(idEmpleado, usuario, contraseña)
+VALUES (1, 'jperez', '123456'); -- Contraseña simple para pruebas
+
+UPDATE Usuario SET contraseña = 'Bwk06E2GcnE7m+nHi+A3IA==' WHERE id = 2; -- Actualizar usuario
  
 -- Insertar productos
 INSERT INTO Producto(idCategoria, idProveedor, codigo, descripcion, unidadMedida, saldo, precioVenta)
