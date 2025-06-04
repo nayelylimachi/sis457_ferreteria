@@ -119,7 +119,7 @@
             this.cbxProveedor.Location = new System.Drawing.Point(210, 111);
             this.cbxProveedor.Margin = new System.Windows.Forms.Padding(4);
             this.cbxProveedor.Name = "cbxProveedor";
-            this.cbxProveedor.Size = new System.Drawing.Size(207, 26);
+            this.cbxProveedor.Size = new System.Drawing.Size(207, 32);
             this.cbxProveedor.TabIndex = 16;
             // 
             // cbxCategoria
@@ -132,7 +132,7 @@
             this.cbxCategoria.Location = new System.Drawing.Point(210, 81);
             this.cbxCategoria.Margin = new System.Windows.Forms.Padding(4);
             this.cbxCategoria.Name = "cbxCategoria";
-            this.cbxCategoria.Size = new System.Drawing.Size(207, 26);
+            this.cbxCategoria.Size = new System.Drawing.Size(207, 32);
             this.cbxCategoria.TabIndex = 15;
             // 
             // lblProveedor
@@ -141,7 +141,7 @@
             this.lblProveedor.Location = new System.Drawing.Point(110, 114);
             this.lblProveedor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblProveedor.Name = "lblProveedor";
-            this.lblProveedor.Size = new System.Drawing.Size(81, 18);
+            this.lblProveedor.Size = new System.Drawing.Size(103, 24);
             this.lblProveedor.TabIndex = 14;
             this.lblProveedor.Text = "Proveedor:";
             // 
@@ -151,7 +151,7 @@
             this.lblCategoria.Location = new System.Drawing.Point(115, 84);
             this.lblCategoria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(76, 18);
+            this.lblCategoria.Size = new System.Drawing.Size(95, 24);
             this.lblCategoria.TabIndex = 12;
             this.lblCategoria.Text = "Categoria:";
             // 
@@ -195,7 +195,7 @@
             0,
             0});
             this.nudSaldo.Name = "nudSaldo";
-            this.nudSaldo.Size = new System.Drawing.Size(160, 24);
+            this.nudSaldo.Size = new System.Drawing.Size(160, 29);
             this.nudSaldo.TabIndex = 9;
             // 
             // nudPrecioVenta
@@ -208,7 +208,7 @@
             0,
             0});
             this.nudPrecioVenta.Name = "nudPrecioVenta";
-            this.nudPrecioVenta.Size = new System.Drawing.Size(160, 24);
+            this.nudPrecioVenta.Size = new System.Drawing.Size(160, 29);
             this.nudPrecioVenta.TabIndex = 8;
             // 
             // lblSaldo
@@ -217,7 +217,7 @@
             this.lblSaldo.Location = new System.Drawing.Point(544, 104);
             this.lblSaldo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSaldo.Name = "lblSaldo";
-            this.lblSaldo.Size = new System.Drawing.Size(50, 18);
+            this.lblSaldo.Size = new System.Drawing.Size(63, 24);
             this.lblSaldo.TabIndex = 7;
             this.lblSaldo.Text = "Saldo:";
             // 
@@ -227,7 +227,7 @@
             this.lblPrecioVenta.Location = new System.Drawing.Point(484, 65);
             this.lblPrecioVenta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPrecioVenta.Name = "lblPrecioVenta";
-            this.lblPrecioVenta.Size = new System.Drawing.Size(116, 18);
+            this.lblPrecioVenta.Size = new System.Drawing.Size(150, 24);
             this.lblPrecioVenta.TabIndex = 6;
             this.lblPrecioVenta.Text = "Precio de Venta:";
             // 
@@ -245,7 +245,7 @@
             this.cbxUnidadMedida.Location = new System.Drawing.Point(614, 21);
             this.cbxUnidadMedida.Margin = new System.Windows.Forms.Padding(4);
             this.cbxUnidadMedida.Name = "cbxUnidadMedida";
-            this.cbxUnidadMedida.Size = new System.Drawing.Size(159, 26);
+            this.cbxUnidadMedida.Size = new System.Drawing.Size(159, 32);
             this.cbxUnidadMedida.TabIndex = 5;
             // 
             // lblUnidadMedida
@@ -254,7 +254,7 @@
             this.lblUnidadMedida.Location = new System.Drawing.Point(466, 24);
             this.lblUnidadMedida.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUnidadMedida.Name = "lblUnidadMedida";
-            this.lblUnidadMedida.Size = new System.Drawing.Size(130, 18);
+            this.lblUnidadMedida.Size = new System.Drawing.Size(170, 24);
             this.lblUnidadMedida.TabIndex = 4;
             this.lblUnidadMedida.Text = "Unidad de Medida:";
             // 
@@ -264,7 +264,7 @@
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescripcion.MaxLength = 250;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(207, 24);
+            this.txtDescripcion.Size = new System.Drawing.Size(207, 29);
             this.txtDescripcion.TabIndex = 3;
             // 
             // lblDescripcion
@@ -273,7 +273,7 @@
             this.lblDescripcion.Location = new System.Drawing.Point(102, 54);
             this.lblDescripcion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(91, 18);
+            this.lblDescripcion.Size = new System.Drawing.Size(115, 24);
             this.lblDescripcion.TabIndex = 2;
             this.lblDescripcion.Text = "Descripción:";
             // 
@@ -284,7 +284,7 @@
             this.txtCodigo.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodigo.MaxLength = 20;
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(207, 24);
+            this.txtCodigo.Size = new System.Drawing.Size(207, 29);
             this.txtCodigo.TabIndex = 1;
             // 
             // lblCodigo
@@ -293,7 +293,7 @@
             this.lblCodigo.Location = new System.Drawing.Point(130, 24);
             this.lblCodigo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(60, 18);
+            this.lblCodigo.Size = new System.Drawing.Size(76, 24);
             this.lblCodigo.TabIndex = 0;
             this.lblCodigo.Text = "Código:";
             // 
@@ -395,6 +395,7 @@
             this.dgvLista.Margin = new System.Windows.Forms.Padding(4);
             this.dgvLista.Name = "dgvLista";
             this.dgvLista.ReadOnly = true;
+            this.dgvLista.RowHeadersWidth = 51;
             this.dgvLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLista.Size = new System.Drawing.Size(1092, 185);
             this.dgvLista.TabIndex = 0;
@@ -422,7 +423,7 @@
             this.txtParametro.Margin = new System.Windows.Forms.Padding(4);
             this.txtParametro.MaxLength = 100;
             this.txtParametro.Name = "txtParametro";
-            this.txtParametro.Size = new System.Drawing.Size(905, 24);
+            this.txtParametro.Size = new System.Drawing.Size(905, 29);
             this.txtParametro.TabIndex = 9;
             this.txtParametro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtParametro_KeyPress);
             // 
@@ -434,7 +435,7 @@
             this.lblParametro.Location = new System.Drawing.Point(6, 60);
             this.lblParametro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblParametro.Name = "lblParametro";
-            this.lblParametro.Size = new System.Drawing.Size(351, 18);
+            this.lblParametro.Size = new System.Drawing.Size(447, 24);
             this.lblParametro.TabIndex = 8;
             this.lblParametro.Text = "Buscar por Código, Descripción o Unida de Medida:";
             // 
@@ -480,7 +481,7 @@
             // 
             // FrmProducto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Linen;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
