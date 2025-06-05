@@ -10,26 +10,20 @@
 namespace CadFerreteria
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Usuario
+    public partial class paEmpleadoListar_Result
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Usuario()
-        {
-            this.Venta = new HashSet<Venta>();
-        }
-    
         public int id { get; set; }
-        public int idEmpleado { get; set; }
-        public string usuario1 { get; set; }
-        public string contraseña { get; set; }
+        public string celulaIdentidad { get; set; }
+        public string nombre { get; set; }
+        public string primerApellido { get; set; }
+        public string segundoApellido { get; set; }
+        public string direccion { get; set; }
+        public Nullable<long> celular { get; set; }
+        public string cargo { get; set; }
         public string usuarioRegistro { get; set; }
         public System.DateTime fechaRegistro { get; set; }
         public short estado { get; set; }
-    
-        public virtual Empleado Empleado { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Venta> Venta { get; set; }
+        public string usuario { get; set; }
     }
 }

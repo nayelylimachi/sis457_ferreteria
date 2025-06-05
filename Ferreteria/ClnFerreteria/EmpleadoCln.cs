@@ -29,7 +29,7 @@ namespace ClnFerreteria
             }
         }
 
-        public static int actualizar(Empleado empleado, string nombreUsuario, string clave)
+        public static int actualizar(Empleado empleado, string nombreUsuario, string contraseña)
         {
             using (var context = new FerreteriaEntities())
             {
@@ -58,7 +58,7 @@ namespace ClnFerreteria
                         {
                             idEmpleado = existente.id,
                             usuario1 = nombreUsuario,
-                            clave = clave,
+                            contraseña = contraseña,
                             estado = 1,
                             fechaRegistro = DateTime.Now,
                             usuarioRegistro = empleado.usuarioRegistro

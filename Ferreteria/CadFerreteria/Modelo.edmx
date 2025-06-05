@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="FerreteriaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="FerreteriaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categoria">
           <Key>
             <PropertyRef Name="id" />
@@ -199,6 +199,9 @@
         <Function Name="paEmpleadoLista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="parametro" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="paEmpleadoListar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="parametro" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="paProductoListar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="parametro" Type="varchar" Mode="In" />
         </Function>
@@ -240,7 +243,8 @@
             <End Role="VentaDetalle" EntitySet="VentaDetalle" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FerreteriaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -487,13 +491,30 @@
             <End Role="VentaDetalle" EntitySet="VentaDetalle" />
           </AssociationSet>
           <FunctionImport Name="paEmpleadoLista" ReturnType="Collection(FerreteriaModel.paEmpleadoLista_Result)">
-          <Parameter Name="parametro" Mode="In" Type="String" />
+            <Parameter Name="parametro" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="paEmpleadoListar" ReturnType="Collection(FerreteriaModel.paEmpleadoListar_Result)">
+            <Parameter Name="parametro" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="paProductoListar" ReturnType="Collection(FerreteriaModel.paProductoListar_Result)">
-          <Parameter Name="parametro" Mode="In" Type="String" />
+            <Parameter Name="parametro" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="paEmpleadoLista_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="celulaIdentidad" Nullable="false" MaxLength="12" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="primerApellido" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="segundoApellido" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="direccion" Nullable="true" MaxLength="250" />
+          <Property Type="Int64" Name="celular" Nullable="true" />
+          <Property Type="String" Name="cargo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="usuarioRegistro" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
+          <Property Type="Int16" Name="estado" Nullable="false" />
+          <Property Type="String" Name="usuario" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="paEmpleadoListar_Result">
           <Property Type="Int32" Name="id" Nullable="false" />
           <Property Type="String" Name="celulaIdentidad" Nullable="false" MaxLength="12" />
           <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
@@ -644,6 +665,24 @@
           <FunctionImportMapping FunctionImportName="paEmpleadoLista" FunctionName="FerreteriaModel.Store.paEmpleadoLista">
             <ResultMapping>
               <ComplexTypeMapping TypeName="FerreteriaModel.paEmpleadoLista_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="celulaIdentidad" ColumnName="celulaIdentidad" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="primerApellido" ColumnName="primerApellido" />
+                <ScalarProperty Name="segundoApellido" ColumnName="segundoApellido" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="celular" ColumnName="celular" />
+                <ScalarProperty Name="cargo" ColumnName="cargo" />
+                <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
+                <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="paEmpleadoListar" FunctionName="FerreteriaModel.Store.paEmpleadoListar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FerreteriaModel.paEmpleadoListar_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="celulaIdentidad" ColumnName="celulaIdentidad" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />

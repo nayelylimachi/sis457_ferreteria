@@ -49,12 +49,12 @@ namespace ClnFerreteria
             }
         }
 
-        public static Usuario validar(string usuario, string clave)
+        public static Usuario validar(string usuario, string contraseña)
         {
             using (var context = new FerreteriaEntities())
             {
                 return context.Usuario
-                    .Where(u => u.usuario1 == usuario && u.clave == clave)
+                    .Where(u => u.usuario1 == usuario && u.contraseña == contraseña)
                     .FirstOrDefault();
             }
         }

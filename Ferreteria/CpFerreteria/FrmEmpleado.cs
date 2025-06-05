@@ -125,7 +125,7 @@ namespace CpFerreteria
             {
                 usuario = new Usuario();
                 usuario.usuario1 = txtUsuario.Text.Trim();
-                usuario.clave = Util.Encrypt("hola123");
+                usuario.contraseña = Util.Encrypt("hola123");
             }
 
             if (esNuevo)
