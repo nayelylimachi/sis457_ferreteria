@@ -147,7 +147,7 @@ BEGIN
 END
 GO
 
-ALTER PROC paEmpleadoListparaa @parametro VARCHAR(100)
+CREATE PROC paEmpleadoListar @parametro VARCHAR(100)
 AS
 	SELECT e.*, u.usuario
 	FROM Empleado e
@@ -158,7 +158,7 @@ AS
 GO
 EXEC paProductoListar'Clavos';
 
-EXEC paEmpleadoLista'';
+EXEC paEmpleadoListar'';
 
 -- Insertar empleado
 INSERT INTO Empleado(celulaIdentidad, nombre, primerApellido, segundoApellido, direccion, celular, cargo)

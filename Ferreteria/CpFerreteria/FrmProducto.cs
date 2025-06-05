@@ -26,6 +26,8 @@ namespace CpFerreteria
             dgvLista.DataSource = lista;
             dgvLista.Columns["id"].Visible = false;
             dgvLista.Columns["estado"].Visible = false;
+            dgvLista.Columns["idCategoria"].HeaderText = "Categoría";
+            dgvLista.Columns["idProveedor"].HeaderText = "Proveedor";
             dgvLista.Columns["codigo"].HeaderText = "Código";
             dgvLista.Columns["descripcion"].HeaderText = "Descripción";
             dgvLista.Columns["precioVenta"].HeaderText = "Precio de Venta";
