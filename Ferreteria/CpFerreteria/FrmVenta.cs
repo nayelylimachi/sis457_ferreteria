@@ -20,6 +20,10 @@ namespace CpFerreteria
         {
             InitializeComponent();
             ConfigurarDataGridView();
+
+            txbEfectivo.KeyPress += txtEfectivo_KeyPress;
+            txbEfectivo.TextChanged += txtEfectivo_TextChanged;
+
         }
         private void ConfigurarDataGridView()
         {
@@ -155,20 +159,16 @@ namespace CpFerreteria
 
         private void ActualizarListaProductos()
         {
-            // Actualizar DataGridView
-            dgvLista.DataSource = null;
-            dgvLista.DataSource = productosSeleccionados.Select(p => new
-            {
-                idProducto = p.IdProducto,
-                nombre = p.Nombre,
-                precio = $"Bs. {p.Precio}",
-                cantidad = p.Cantidad,
-                Total = $"Bs. {(p.Precio * p.Cantidad)}"
-            }).ToList();
+            dgvLista.Rows.Clear();
 
-            // Calcular y mostrar el total en bolivianos
+            foreach (var p in productosSeleccionados)
+            {
+                dgvLista.Rows.Add(p.IdProducto, p.Nombre, p.Precio, p.Cantidad, p.Precio * p.Cantidad);
+            }
+
+            // Total de la venta
             decimal total = productosSeleccionados.Sum(p => p.Precio * p.Cantidad);
-            txtTotal.Text = $"Bs. {total.ToString("#,##0.00")}";  // Formato: Bs. 1,250.50
+            txtTotal.Text = $"Bs. {total:#,##0.00}";
         }
 
         private void LimpiarFormulario()
@@ -180,6 +180,50 @@ namespace CpFerreteria
             productosSeleccionados.Clear();
             dgvLista.DataSource = null;
             txtTotal.Text = "Total: 0.00";
+        }
+        private void txtEfectivo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+
+            // Permitir solo un separador decimal (punto o coma)
+            if ((e.KeyChar == '.' || e.KeyChar == ',') && (tb.Text.Contains(".") || tb.Text.Contains(",")))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtEfectivo_TextChanged(object sender, EventArgs e)
+        {
+            CalcularVuelto();
+        }
+
+        private void CalcularVuelto()
+        {
+            // Quitar "Bs. " del texto para parsear sólo el número
+            string totalTexto = txtTotal.Text.Replace("Bs. ", "").Trim();
+
+            if (decimal.TryParse(totalTexto, out decimal total) &&
+                decimal.TryParse(txbEfectivo.Text.Replace(',', '.'), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out decimal efectivo))
+            {
+                decimal vuelto = efectivo - total;
+                if (vuelto < 0)
+                {
+                    txbCambio.Text = "Pago insuficiente";
+                }
+                else
+                {
+                    txbCambio.Text = $"Bs. {vuelto:#,##0.00}";
+                }
+            }
+            else
+            {
+                txbCambio.Text = string.Empty;
+            }
         }
 
         private void txtCiNit_KeyPress(object sender, KeyPressEventArgs e)

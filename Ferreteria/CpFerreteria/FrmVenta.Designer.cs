@@ -37,6 +37,7 @@
             this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.lblNombreCliente = new System.Windows.Forms.Label();
             this.gbxCliente = new System.Windows.Forms.GroupBox();
+            this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.gbxProducto = new System.Windows.Forms.GroupBox();
             this.btnAgregarProducto = new System.Windows.Forms.Button();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
@@ -49,7 +50,6 @@
             this.txbCambio = new System.Windows.Forms.TextBox();
             this.dgvLista = new System.Windows.Forms.DataGridView();
             this.gbxListaProductos = new System.Windows.Forms.GroupBox();
-            this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.gbxCliente.SuspendLayout();
             this.gbxProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
@@ -151,6 +151,16 @@
             this.gbxCliente.TabStop = false;
             this.gbxCliente.Text = "Datos de Cliente";
             // 
+            // txtNombreCliente
+            // 
+            this.txtNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreCliente.Location = new System.Drawing.Point(199, 62);
+            this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNombreCliente.MaxLength = 100;
+            this.txtNombreCliente.Name = "txtNombreCliente";
+            this.txtNombreCliente.Size = new System.Drawing.Size(326, 24);
+            this.txtNombreCliente.TabIndex = 17;
+            // 
             // gbxProducto
             // 
             this.gbxProducto.BackColor = System.Drawing.Color.Transparent;
@@ -227,10 +237,10 @@
             // 
             // txbEfectivo
             // 
+            this.txbEfectivo.AcceptsReturn = true;
             this.txbEfectivo.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txbEfectivo.Location = new System.Drawing.Point(578, 191);
             this.txbEfectivo.Name = "txbEfectivo";
-            this.txbEfectivo.ReadOnly = true;
             this.txbEfectivo.Size = new System.Drawing.Size(100, 22);
             this.txbEfectivo.TabIndex = 27;
             this.txbEfectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -287,16 +297,6 @@
             this.gbxListaProductos.TabIndex = 31;
             this.gbxListaProductos.TabStop = false;
             this.gbxListaProductos.Text = "Lista de Productos";
-            // 
-            // txtNombreCliente
-            // 
-            this.txtNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreCliente.Location = new System.Drawing.Point(199, 62);
-            this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNombreCliente.MaxLength = 100;
-            this.txtNombreCliente.Name = "txtNombreCliente";
-            this.txtNombreCliente.Size = new System.Drawing.Size(326, 24);
-            this.txtNombreCliente.TabIndex = 17;
             // 
             // FrmVenta
             // 

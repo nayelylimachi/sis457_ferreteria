@@ -38,5 +38,10 @@ namespace CpFerreteria
         {
             frmAutenticacion.Show(); // Mostrar el formulario de autenticación al cerrar el formulario principal
         }
+
+        private void btnCaProveedores_Click(object sender, EventArgs e)
+        {
+            new FrmProveedor().ShowDialog();
+        }
     }
 }

@@ -152,6 +152,7 @@
             this.btnCaProveedores.IconSet.Add(new C1.Framework.C1BitmapIcon(null, new System.Drawing.Size(32, 32), System.Drawing.Color.Transparent, ((System.Drawing.Image)(resources.GetObject("btnCaProveedores.IconSet")))));
             this.btnCaProveedores.Name = "btnCaProveedores";
             this.btnCaProveedores.Text = "Proveedores";
+            this.btnCaProveedores.Click += new System.EventHandler(this.btnCaProveedores_Click);
             // 
             // btnCaClientes
             // 
