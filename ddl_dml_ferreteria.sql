@@ -168,7 +168,7 @@ INSERT INTO Empleado(celulaIdentidad, nombre, primerApellido, segundoApellido, d
 VALUES ('7513756', 'Wilder Handel', '', 'Arciénega', 'Av. Circunvalación S/N', 67654550, 'Contador');
 
 INSERT INTO Empleado(celulaIdentidad, nombre, primerApellido, segundoApellido, direccion, celular, cargo)
-VALUES ('1234567', 'Juan', 'Perez', 'Muñoz', 'Calle Loa N° 50', 71717171, 'Cajero');
+VALUES ('10347355', 'Nayeli', 'Limachi', 'Peréz', 'Calle Loa N° 50', 71717171, 'Ejecutivo');
 
 -- Crear usuario para ese empleado
 INSERT INTO Usuario(idEmpleado, usuario, contraseña)
@@ -178,7 +178,7 @@ INSERT INTO Usuario(idEmpleado, usuario, contraseña)
 VALUES (2, 'wharcienega', '123456'); -- Contraseña simple para pruebas
 
 INSERT INTO Usuario(idEmpleado, usuario, contraseña)
-VALUES (1, 'jperez', '123456'); -- Contraseña simple para pruebas
+VALUES (3, 'nlimachi', 'Bwk06E2GcnE7m+nHi+A3IA=='); -- Contraseña simple para pruebas
 
 UPDATE Usuario SET contraseña = 'Bwk06E2GcnE7m+nHi+A3IA==' WHERE id = 2; -- Actualizar usuario
  
@@ -208,3 +208,4 @@ SELECT * FROM Categoria;
 SELECT * FROM Proveedor;
 SELECT * FROM Empleado;
 SELECT * FROM Usuario;
+SELECT * FROM Cliente;
