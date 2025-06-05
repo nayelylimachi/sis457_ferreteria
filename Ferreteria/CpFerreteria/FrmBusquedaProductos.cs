@@ -27,10 +27,6 @@ namespace CpFerreteria
         {
             InitializeComponent();
         }
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
 
         private void CargarProductos()
         {
@@ -50,23 +46,12 @@ namespace CpFerreteria
             if (lista.Count > 0) dgvLista.CurrentCell = dgvLista.Rows[0].Cells["codigo"];
         }
 
-        private void FrmVentaDetalle_Load(object sender, EventArgs e)
+        private void FrmBusquedaProductos_Load(object sender, EventArgs e)
         {
             CargarProductos();
         }
 
-        private void txtParametro_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter) CargarProductos();
-
-        }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            CargarProductos();
-        }
-
-        private void btnSeleccionarProducto_Click(object sender, EventArgs e)
+        private void btnSeleccionarProducto_Click_1(object sender, EventArgs e)
         {
             if (dgvLista.CurrentRow != null)
             {
@@ -97,6 +82,21 @@ namespace CpFerreteria
             {
                 MessageBox.Show("Seleccione un producto.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            CargarProductos();
+        }
+
+        private void txtParametro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter) CargarProductos();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -75,6 +75,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Image = global::CpFerreteria.Properties.Resources.search;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscar.Location = new System.Drawing.Point(630, 90);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
@@ -85,6 +86,7 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtParametro
             // 
@@ -95,10 +97,12 @@
             this.txtParametro.Name = "txtParametro";
             this.txtParametro.Size = new System.Drawing.Size(592, 24);
             this.txtParametro.TabIndex = 25;
+            this.txtParametro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtParametro_KeyPress);
             // 
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Image = global::CpFerreteria.Properties.Resources.cancel;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelar.Location = new System.Drawing.Point(309, 367);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
@@ -109,6 +113,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // lblParametro
             // 
@@ -125,6 +130,7 @@
             // btnSeleccionarProducto
             // 
             this.btnSeleccionarProducto.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeleccionarProducto.Image = global::CpFerreteria.Properties.Resources.save;
             this.btnSeleccionarProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSeleccionarProducto.Location = new System.Drawing.Point(80, 367);
             this.btnSeleccionarProducto.Margin = new System.Windows.Forms.Padding(4);
@@ -135,6 +141,7 @@
             this.btnSeleccionarProducto.Text = "Seleccionar Producto";
             this.btnSeleccionarProducto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSeleccionarProducto.UseVisualStyleBackColor = true;
+            this.btnSeleccionarProducto.Click += new System.EventHandler(this.btnSeleccionarProducto_Click_1);
             // 
             // lblTitulo
             // 
@@ -193,9 +200,10 @@
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.lblPrecioVenta);
             this.Controls.Add(this.nudCantidad);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmBusquedaProductos";
             this.Text = "FrmBusquedaProductos";
+            this.Load += new System.EventHandler(this.FrmBusquedaProductos_Load);
             this.gbxLista.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).EndInit();
