@@ -1,6 +1,6 @@
 ﻿namespace CpFerreteria
 {
-    partial class FrmCliente
+    partial class FrmVentaDetalle
     {
         /// <summary>
         /// Required designer variable.
@@ -30,9 +30,6 @@
         {
             this.lblTitulo = new System.Windows.Forms.Label();
             this.gbxDatos = new System.Windows.Forms.GroupBox();
-            this.txtCelular = new System.Windows.Forms.TextBox();
-            this.lblCelular = new System.Windows.Forms.Label();
-            this.lblDireccion = new System.Windows.Forms.Label();
             this.lblSegundoApellido = new System.Windows.Forms.Label();
             this.txtPrimerApellido = new System.Windows.Forms.TextBox();
             this.lblPrimerApellido = new System.Windows.Forms.Label();
@@ -40,82 +37,47 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtCedulaIdentidad = new System.Windows.Forms.TextBox();
             this.pnlAcciones = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.gbxLista = new System.Windows.Forms.GroupBox();
-            this.dgvLista = new System.Windows.Forms.DataGridView();
             this.gbxDatos.SuspendLayout();
             this.pnlAcciones.SuspendLayout();
-            this.gbxLista.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
             // 
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(12, 9);
+            this.lblTitulo.Location = new System.Drawing.Point(1, 9);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(135, 31);
-            this.lblTitulo.TabIndex = 8;
-            this.lblTitulo.Text = "Clientes";
+            this.lblTitulo.Size = new System.Drawing.Size(545, 31);
+            this.lblTitulo.TabIndex = 2;
+            this.lblTitulo.Text = "Registro de Venta Detalle";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gbxDatos
             // 
-            this.gbxDatos.Controls.Add(this.dtpFecha);
-            this.gbxDatos.Controls.Add(this.txtCelular);
-            this.gbxDatos.Controls.Add(this.lblCelular);
-            this.gbxDatos.Controls.Add(this.lblDireccion);
             this.gbxDatos.Controls.Add(this.lblSegundoApellido);
             this.gbxDatos.Controls.Add(this.txtPrimerApellido);
             this.gbxDatos.Controls.Add(this.lblPrimerApellido);
             this.gbxDatos.Controls.Add(this.txtNombres);
             this.gbxDatos.Controls.Add(this.lblNombre);
             this.gbxDatos.Controls.Add(this.txtCedulaIdentidad);
-            this.gbxDatos.Location = new System.Drawing.Point(18, 94);
+            this.gbxDatos.Location = new System.Drawing.Point(7, 62);
             this.gbxDatos.Name = "gbxDatos";
             this.gbxDatos.Size = new System.Drawing.Size(547, 115);
-            this.gbxDatos.TabIndex = 14;
+            this.gbxDatos.TabIndex = 16;
             this.gbxDatos.TabStop = false;
             this.gbxDatos.Text = "Datos";
-            // 
-            // txtCelular
-            // 
-            this.txtCelular.Location = new System.Drawing.Point(387, 13);
-            this.txtCelular.MaxLength = 8;
-            this.txtCelular.Name = "txtCelular";
-            this.txtCelular.Size = new System.Drawing.Size(147, 22);
-            this.txtCelular.TabIndex = 6;
-            // 
-            // lblCelular
-            // 
-            this.lblCelular.AutoSize = true;
-            this.lblCelular.Location = new System.Drawing.Point(328, 18);
-            this.lblCelular.Name = "lblCelular";
-            this.lblCelular.Size = new System.Drawing.Size(53, 16);
-            this.lblCelular.TabIndex = 17;
-            this.lblCelular.Text = "Estado:";
-            // 
-            // lblDireccion
-            // 
-            this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(28, 96);
-            this.lblDireccion.Name = "lblDireccion";
-            this.lblDireccion.Size = new System.Drawing.Size(109, 16);
-            this.lblDireccion.TabIndex = 15;
-            this.lblDireccion.Text = "Fecha Reguistro:";
             // 
             // lblSegundoApellido
             // 
             this.lblSegundoApellido.AutoSize = true;
-            this.lblSegundoApellido.Location = new System.Drawing.Point(22, 64);
+            this.lblSegundoApellido.Location = new System.Drawing.Point(73, 64);
             this.lblSegundoApellido.Name = "lblSegundoApellido";
-            this.lblSegundoApellido.Size = new System.Drawing.Size(118, 16);
+            this.lblSegundoApellido.Size = new System.Drawing.Size(41, 16);
             this.lblSegundoApellido.TabIndex = 14;
-            this.lblSegundoApellido.Text = "Usuario Reguistro:";
+            this.lblSegundoApellido.Text = "Total:";
             // 
             // txtPrimerApellido
             // 
@@ -128,11 +90,11 @@
             // lblPrimerApellido
             // 
             this.lblPrimerApellido.AutoSize = true;
-            this.lblPrimerApellido.Location = new System.Drawing.Point(100, 42);
+            this.lblPrimerApellido.Location = new System.Drawing.Point(73, 16);
             this.lblPrimerApellido.Name = "lblPrimerApellido";
-            this.lblPrimerApellido.Size = new System.Drawing.Size(32, 16);
+            this.lblPrimerApellido.Size = new System.Drawing.Size(64, 16);
             this.lblPrimerApellido.TabIndex = 4;
-            this.lblPrimerApellido.Text = "NIT:";
+            this.lblPrimerApellido.Text = "Cantidad:";
             // 
             // txtNombres
             // 
@@ -145,11 +107,11 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(71, 19);
+            this.lblNombre.Location = new System.Drawing.Point(50, 42);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(66, 16);
+            this.lblNombre.Size = new System.Drawing.Size(98, 16);
             this.lblNombre.TabIndex = 2;
-            this.lblNombre.Text = "Nombres:";
+            this.lblNombre.Text = "Precio Unitario:";
             // 
             // txtCedulaIdentidad
             // 
@@ -166,10 +128,36 @@
             this.pnlAcciones.Controls.Add(this.button1);
             this.pnlAcciones.Controls.Add(this.btnEditar);
             this.pnlAcciones.Controls.Add(this.btnNuevo);
-            this.pnlAcciones.Location = new System.Drawing.Point(28, 234);
+            this.pnlAcciones.Location = new System.Drawing.Point(60, 183);
             this.pnlAcciones.Name = "pnlAcciones";
             this.pnlAcciones.Size = new System.Drawing.Size(460, 47);
-            this.pnlAcciones.TabIndex = 15;
+            this.pnlAcciones.TabIndex = 17;
+            // 
+            // button2
+            // 
+            this.button2.Image = global::CpFerreteria.Properties.Resources.cancel;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(334, 4);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.button2.Size = new System.Drawing.Size(111, 40);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Cancelar";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Image = global::CpFerreteria.Properties.Resources.save;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(119, 3);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.button1.Size = new System.Drawing.Size(105, 40);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Guardar";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // btnEditar
             // 
@@ -197,81 +185,19 @@
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.UseVisualStyleBackColor = true;
             // 
-            // button1
-            // 
-            this.button1.Image = global::CpFerreteria.Properties.Resources.save;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(119, 3);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.button1.Size = new System.Drawing.Size(105, 40);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Guardar";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Image = global::CpFerreteria.Properties.Resources.cancel;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(334, 4);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.button2.Size = new System.Drawing.Size(111, 40);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Cancelar";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // dtpFecha
-            // 
-            this.dtpFecha.Enabled = false;
-            this.dtpFecha.Location = new System.Drawing.Point(143, 90);
-            this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(260, 22);
-            this.dtpFecha.TabIndex = 18;
-            // 
-            // gbxLista
-            // 
-            this.gbxLista.Controls.Add(this.dgvLista);
-            this.gbxLista.Location = new System.Drawing.Point(18, 287);
-            this.gbxLista.Name = "gbxLista";
-            this.gbxLista.Size = new System.Drawing.Size(547, 180);
-            this.gbxLista.TabIndex = 16;
-            this.gbxLista.TabStop = false;
-            this.gbxLista.Text = "Lista de Clientes";
-            // 
-            // dgvLista
-            // 
-            this.dgvLista.AllowUserToAddRows = false;
-            this.dgvLista.AllowUserToDeleteRows = false;
-            this.dgvLista.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLista.Location = new System.Drawing.Point(6, 21);
-            this.dgvLista.Name = "dgvLista";
-            this.dgvLista.ReadOnly = true;
-            this.dgvLista.RowHeadersWidth = 51;
-            this.dgvLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLista.Size = new System.Drawing.Size(528, 153);
-            this.dgvLista.TabIndex = 0;
-            // 
-            // FrmCliente
+            // FrmVentaDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(577, 471);
-            this.Controls.Add(this.gbxLista);
+            this.ClientSize = new System.Drawing.Size(562, 233);
             this.Controls.Add(this.pnlAcciones);
             this.Controls.Add(this.gbxDatos);
             this.Controls.Add(this.lblTitulo);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "FrmCliente";
-            this.Text = "Form1";
+            this.Name = "FrmVentaDetalle";
+            this.Text = "FrmVentaDetalle";
             this.gbxDatos.ResumeLayout(false);
             this.gbxDatos.PerformLayout();
             this.pnlAcciones.ResumeLayout(false);
-            this.gbxLista.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -280,9 +206,6 @@
 
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.GroupBox gbxDatos;
-        private System.Windows.Forms.TextBox txtCelular;
-        private System.Windows.Forms.Label lblCelular;
-        private System.Windows.Forms.Label lblDireccion;
         private System.Windows.Forms.Label lblSegundoApellido;
         private System.Windows.Forms.TextBox txtPrimerApellido;
         private System.Windows.Forms.Label lblPrimerApellido;
@@ -294,8 +217,5 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.DateTimePicker dtpFecha;
-        private System.Windows.Forms.GroupBox gbxLista;
-        private System.Windows.Forms.DataGridView dgvLista;
     }
 }

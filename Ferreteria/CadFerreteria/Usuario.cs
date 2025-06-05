@@ -14,6 +14,8 @@ namespace CadFerreteria
     
     public partial class Usuario
     {
+        public string clave;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Usuario()
         {
