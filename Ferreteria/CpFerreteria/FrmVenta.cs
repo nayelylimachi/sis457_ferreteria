@@ -14,7 +14,7 @@ namespace CpFerreteria
     public partial class FrmVenta : Form
     {
         private Cliente clienteActual = null;
-        private List<FrmVentaDetalle.ProductoSeleccionado> productosSeleccionados = new List<FrmVentaDetalle.ProductoSeleccionado>();
+        private List<FrmBusquedaProductos.ProductoSeleccionado> productosSeleccionados = new List<FrmBusquedaProductos.ProductoSeleccionado>();
 
         public FrmVenta()
         {
@@ -101,7 +101,7 @@ namespace CpFerreteria
                     precioUnitario = producto.Precio,
                     total = producto.Cantidad * producto.Precio
                 };
-                VentaDetalleCln.insertar(detalle);
+                BusquedaProductoCln.insertar(detalle);
             }
 
             // Limpiar después de registrar
@@ -145,7 +145,7 @@ namespace CpFerreteria
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-            var frmDetalle = new FrmVentaDetalle();
+            var frmDetalle = new FrmBusquedaProductos();
             if (frmDetalle.ShowDialog() == DialogResult.OK && frmDetalle.ProductoElegido != null)
             {
                 productosSeleccionados.Add(frmDetalle.ProductoElegido);
