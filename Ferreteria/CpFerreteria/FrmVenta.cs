@@ -83,13 +83,15 @@ namespace CpFerreteria
             }
 
             // Registrar la venta
+           
             Venta venta = new Venta
             {
                 fecha = DateTime.Now,
                 idCliente = clienteActual.id,
+                idUsuario = Util.usuario.id, // Asegúrate que Util.usuario.id es válido y existe en la tabla Usuario
                 estado = 1,
                 usuarioRegistro = Util.usuario.usuario1,
-                transaccion = new Random().Next(1000, 999999) // o algún sistema de generación de transacción
+                transaccion = new Random().Next(1000, 999999)
             };
 
             int idVenta = VentaCln.insertar(venta);
@@ -103,7 +105,11 @@ namespace CpFerreteria
                     idProducto = producto.IdProducto,
                     cantidad = producto.Cantidad,
                     precioUnitario = producto.Precio,
-                    total = producto.Cantidad * producto.Precio
+                    total = producto.Cantidad * producto.Precio,
+                    usuarioRegistro = Util.usuario.usuario1,
+                    fechaRegistro = DateTime.Now,            
+                    estado = 1                               
+
                 };
                 BusquedaProductoCln.insertar(detalle);
             }

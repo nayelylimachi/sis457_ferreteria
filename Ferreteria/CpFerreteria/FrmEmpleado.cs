@@ -83,7 +83,7 @@ namespace CpFerreteria
             int id = Convert.ToInt32(dgvLista.Rows[index].Cells["id"].Value);
             var empleado = EmpleadoCln.obtenerUno(id);
             var usuario = empleado.Usuario.Count > 0 ? empleado.Usuario.First().usuario1 : "";
-            txtCedulaIdentidad.Text = empleado.celulaIdentidad;
+            txtCedulaIdentidad.Text = empleado.cedulaIdentidad;
             txtNombres.Text = empleado.nombre;
             txtPrimerApellido.Text = empleado.primerApellido;
             txtSegundoApellido.Text = empleado.segundoApellido;
@@ -111,7 +111,7 @@ namespace CpFerreteria
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             var empleado = new Empleado();
-            empleado.celulaIdentidad = txtCedulaIdentidad.Text.Trim();
+            empleado.cedulaIdentidad = txtCedulaIdentidad.Text.Trim();
             empleado.nombre = txtNombres.Text.Trim();
             empleado.primerApellido = txtPrimerApellido.Text.Trim();
             empleado.segundoApellido = txtSegundoApellido.Text.Trim();

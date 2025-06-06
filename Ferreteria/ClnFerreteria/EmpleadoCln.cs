@@ -34,7 +34,7 @@ namespace ClnFerreteria
             using (var context = new FerreteriaEntities())
             {
                 var existente = context.Empleado.Find(empleado.id);
-                existente.celulaIdentidad = empleado.celulaIdentidad;
+                existente.cedulaIdentidad = empleado.cedulaIdentidad;
                 existente.nombre = empleado.nombre;
                 existente.primerApellido = empleado.primerApellido;
                 existente.segundoApellido = empleado.segundoApellido;
@@ -97,11 +97,11 @@ namespace ClnFerreteria
             }
         }
 
-        public static List<paEmpleadoLista_Result> listarPa(string parametro)
+        public static List<paEmpleadoListar_Result> listarPa(string parametro)
         {
             using (var context = new FerreteriaEntities())
             {
-                return context.paEmpleadoLista(parametro).ToList();
+                return context.paEmpleadoListar(parametro).ToList();
             }
         }
     }

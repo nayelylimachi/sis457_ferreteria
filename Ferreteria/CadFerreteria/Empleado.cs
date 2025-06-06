@@ -21,7 +21,7 @@ namespace CadFerreteria
         }
     
         public int id { get; set; }
-        public string celulaIdentidad { get; set; }
+        public string cedulaIdentidad { get; set; }
         public string nombre { get; set; }
         public string primerApellido { get; set; }
         public string segundoApellido { get; set; }

@@ -32,7 +32,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="celulaIdentidad" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="cedulaIdentidad" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="primerApellido" Type="varchar" MaxLength="30" />
           <Property Name="segundoApellido" Type="varchar" MaxLength="30" />
@@ -277,7 +277,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="celulaIdentidad" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cedulaIdentidad" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="primerApellido" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="segundoApellido" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
@@ -490,7 +490,7 @@
             <End Role="Venta" EntitySet="Venta" />
             <End Role="VentaDetalle" EntitySet="VentaDetalle" />
           </AssociationSet>
-          <FunctionImport Name="paEmpleadoLista" ReturnType="Collection(FerreteriaModel.paEmpleadoLista_Result)">
+          <FunctionImport Name="paEmpleadoLista">
             <Parameter Name="parametro" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="paEmpleadoListar" ReturnType="Collection(FerreteriaModel.paEmpleadoListar_Result)">
@@ -500,23 +500,9 @@
             <Parameter Name="parametro" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
-        <ComplexType Name="paEmpleadoLista_Result">
-          <Property Type="Int32" Name="id" Nullable="false" />
-          <Property Type="String" Name="celulaIdentidad" Nullable="false" MaxLength="12" />
-          <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
-          <Property Type="String" Name="primerApellido" Nullable="true" MaxLength="30" />
-          <Property Type="String" Name="segundoApellido" Nullable="true" MaxLength="30" />
-          <Property Type="String" Name="direccion" Nullable="true" MaxLength="250" />
-          <Property Type="Int64" Name="celular" Nullable="true" />
-          <Property Type="String" Name="cargo" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="usuarioRegistro" Nullable="false" MaxLength="50" />
-          <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
-          <Property Type="Int16" Name="estado" Nullable="false" />
-          <Property Type="String" Name="usuario" Nullable="true" MaxLength="20" />
-        </ComplexType>
         <ComplexType Name="paEmpleadoListar_Result">
           <Property Type="Int32" Name="id" Nullable="false" />
-          <Property Type="String" Name="celulaIdentidad" Nullable="false" MaxLength="12" />
+          <Property Type="String" Name="cedulaIdentidad" Nullable="false" MaxLength="12" />
           <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
           <Property Type="String" Name="primerApellido" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="segundoApellido" Nullable="true" MaxLength="30" />
@@ -575,7 +561,7 @@
             <EntityTypeMapping TypeName="FerreteriaModel.Empleado">
               <MappingFragment StoreEntitySet="Empleado">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="celulaIdentidad" ColumnName="celulaIdentidad" />
+                <ScalarProperty Name="cedulaIdentidad" ColumnName="cedulaIdentidad" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="primerApellido" ColumnName="primerApellido" />
                 <ScalarProperty Name="segundoApellido" ColumnName="segundoApellido" />
@@ -662,29 +648,12 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="paEmpleadoLista" FunctionName="FerreteriaModel.Store.paEmpleadoLista">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="FerreteriaModel.paEmpleadoLista_Result">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="celulaIdentidad" ColumnName="celulaIdentidad" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="primerApellido" ColumnName="primerApellido" />
-                <ScalarProperty Name="segundoApellido" ColumnName="segundoApellido" />
-                <ScalarProperty Name="direccion" ColumnName="direccion" />
-                <ScalarProperty Name="celular" ColumnName="celular" />
-                <ScalarProperty Name="cargo" ColumnName="cargo" />
-                <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
-                <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
-                <ScalarProperty Name="usuario" ColumnName="usuario" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="paEmpleadoLista" FunctionName="FerreteriaModel.Store.paEmpleadoLista" />
           <FunctionImportMapping FunctionImportName="paEmpleadoListar" FunctionName="FerreteriaModel.Store.paEmpleadoListar">
             <ResultMapping>
               <ComplexTypeMapping TypeName="FerreteriaModel.paEmpleadoListar_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="celulaIdentidad" ColumnName="celulaIdentidad" />
+                <ScalarProperty Name="cedulaIdentidad" ColumnName="cedulaIdentidad" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="primerApellido" ColumnName="primerApellido" />
                 <ScalarProperty Name="segundoApellido" ColumnName="segundoApellido" />

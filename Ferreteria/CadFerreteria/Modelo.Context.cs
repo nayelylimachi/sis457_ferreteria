@@ -36,13 +36,13 @@ namespace CadFerreteria
         public virtual DbSet<Venta> Venta { get; set; }
         public virtual DbSet<VentaDetalle> VentaDetalle { get; set; }
     
-        public virtual ObjectResult<paEmpleadoLista_Result> paEmpleadoLista(string parametro)
+        public virtual int paEmpleadoLista(string parametro)
         {
             var parametroParameter = parametro != null ?
                 new ObjectParameter("parametro", parametro) :
                 new ObjectParameter("parametro", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paEmpleadoLista_Result>("paEmpleadoLista", parametroParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("paEmpleadoLista", parametroParameter);
         }
     
         public virtual ObjectResult<paEmpleadoListar_Result> paEmpleadoListar(string parametro)

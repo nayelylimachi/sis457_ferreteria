@@ -60,7 +60,7 @@ CREATE TABLE Cliente (
 
 CREATE TABLE Empleado (
 	id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
-	celulaIdentidad VARCHAR(12) NOT NULL,
+	cedulaIdentidad VARCHAR(12) NOT NULL,
 	nombre VARCHAR(30) NOT NULL,
 	primerApellido VARCHAR(30),
 	segundoApellido VARCHAR(30),
@@ -111,7 +111,7 @@ ALTER TABLE Producto ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME
 ALTER TABLE Producto ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
 ALTER TABLE Producto ADD estado SMALLINT NOT NULL DEFAULT 1;  -- -1ELIMINADO 0= INACTIVI  1= ACTIVO
 
-ALTER TABLE Cliente ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
+ALTER TABLE Cliente ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT 'nlimachi';
 ALTER TABLE Cliente ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
 ALTER TABLE Cliente ADD estado SMALLINT NOT NULL DEFAULT 1;  -- -1ELIMINADO 0= INACTIVI  1= ACTIVO
 
@@ -147,13 +147,13 @@ BEGIN
 END
 GO
 
-CREATE PROC paEmpleadoListar @parametro VARCHAR(100)
+ALTER PROC paEmpleadoListar @parametro VARCHAR(100)
 AS
 	SELECT e.*, u.usuario
 	FROM Empleado e
 	LEFT JOIN Usuario u ON e.id = u.idEmpleado
 	WHERE e.estado <> -1
-	  AND (celulaIdentidad + nombre + primerApellido + segundoApellido) LIKE '%' + @parametro + '%' + REPLACE(@parametro, ' ', '%') + '%'
+	  AND (cedulaIdentidad + nombre + primerApellido + segundoApellido) LIKE '%' + @parametro + '%' + REPLACE(@parametro, ' ', '%') + '%'
 	ORDER BY e.estado DESC, e.nombre ASC, e.primerApellido ASC;
 GO
 EXEC paProductoListar'Clavos';
@@ -161,13 +161,13 @@ EXEC paProductoListar'Clavos';
 EXEC paEmpleadoListar'';
 
 -- Insertar empleado
-INSERT INTO Empleado(celulaIdentidad, nombre, primerApellido, segundoApellido, direccion, celular, cargo)
+INSERT INTO Empleado(cedulaIdentidad, nombre, primerApellido, segundoApellido, direccion, celular, cargo)
 VALUES ('1234567', 'Juan', 'Perez', 'Muñoz', 'Calle Loa N° 50', 71717171, 'Cajero');
 
-INSERT INTO Empleado(celulaIdentidad, nombre, primerApellido, segundoApellido, direccion, celular, cargo)
+INSERT INTO Empleado(cedulaIdentidad, nombre, primerApellido, segundoApellido, direccion, celular, cargo)
 VALUES ('7513756', 'Wilder Handel', '', 'Arciénega', 'Av. Circunvalación S/N', 67654550, 'Contador');
 
-INSERT INTO Empleado(celulaIdentidad, nombre, primerApellido, segundoApellido, direccion, celular, cargo)
+INSERT INTO Empleado(cedulaIdentidad, nombre, primerApellido, segundoApellido, direccion, celular, cargo)
 VALUES ('10347355', 'Nayeli', 'Limachi', 'Peréz', 'Calle Loa N° 50', 71717171, 'Ejecutivo');
 
 -- Crear usuario para ese empleado
@@ -181,7 +181,28 @@ INSERT INTO Usuario(idEmpleado, usuario, contraseña)
 VALUES (3, 'nlimachi', 'Bwk06E2GcnE7m+nHi+A3IA=='); -- Contraseña simple para pruebas
 
 UPDATE Usuario SET contraseña = 'Bwk06E2GcnE7m+nHi+A3IA==' WHERE id = 2; -- Actualizar usuario
- 
+INSERT INTO Categoria(nombre, descripcion)
+VALUES ('Herramienta','Herramientas de construccion');
+
+-- Insertar categorías
+INSERT INTO Categoria(nombre, descripcion)
+VALUES ('Electricidad','Productos eléctricos y cables');
+INSERT INTO Categoria(nombre, descripcion)
+VALUES ('Fontanería','Artículos para instalaciones de agua y desagüe');
+INSERT INTO Categoria(nombre, descripcion)
+VALUES ('Pinturas','Pinturas, brochas y accesorios');
+
+ 
+-- Insertar proveedores
+INSERT INTO Proveedor(nit, razonSocial, telefono, direccion, representante)
+VALUES (123456789, 'Ferretería El Tornillo', '76543210', 'Av. América #100', 'Luis Salazar');
+INSERT INTO Proveedor(nit, razonSocial, telefono, direccion, representante)
+VALUES (987654321, 'Materiales El Constructor', '77788899', 'Calle Principal #200', 'Ana Gomez');
+INSERT INTO Proveedor(nit, razonSocial, telefono, direccion, representante)
+VALUES (456789123, 'Suministros Industriales S.A.', '61234567', 'Zona Industrial #300', 'Carlos Ramirez');
+INSERT INTO Proveedor(nit, razonSocial, telefono, direccion, representante)
+VALUES (112233445, 'Distribuidora Ferretera del Sur', '70011223', 'Av. del Libertador #50', 'Marta Torres');
+
 -- Insertar productos
 INSERT INTO Producto(idCategoria, idProveedor, codigo, descripcion, unidadMedida, saldo, precioVenta)
 VALUES (1, 1, 'PL0254', 'Martillo Mango de Madera', 'Unidad', 0, 36);
@@ -189,15 +210,28 @@ INSERT INTO Producto(idCategoria, idProveedor, codigo, descripcion, unidadMedida
 VALUES(1, 1, 'HB7985', 'Clavos para concreto 2 pulgadas', 'Caja', 0, 30);
 INSERT INTO Producto(idCategoria, idProveedor, codigo, descripcion, unidadMedida, saldo, precioVenta)
 VALUES(1, 1, 'HB7986', 'Clavos para concreto 3 pulgadas', 'Caja', 0, 33);
+INSERT INTO Producto(idCategoria, idProveedor, codigo, descripcion, unidadMedida, saldo, precioVenta)
+VALUES (2, 2, 'ELC001', 'Cable Eléctrico 2.5mm', 'Metro', 100, 2.50);
+INSERT INTO Producto(idCategoria, idProveedor, codigo, descripcion, unidadMedida, saldo, precioVenta)
+VALUES (3, 3, 'FON002', 'Tubo PVC 1/2 pulgada', 'Metro', 50, 15.00); 
+INSERT INTO Producto(idCategoria, idProveedor, codigo, descripcion, unidadMedida, saldo, precioVenta)
+VALUES (4, 4, 'PIN003', 'Pintura Blanca Esmalte 1 Galón', 'Galón', 20, 85.00); 
+INSERT INTO Producto(idCategoria, idProveedor, codigo, descripcion, unidadMedida, saldo, precioVenta)
+VALUES (2, 3, 'ELC004', 'Interruptor Doble', 'Unidad', 75, 12.50);
+INSERT INTO Producto(idCategoria, idProveedor, codigo, descripcion, unidadMedida, saldo, precioVenta)
+VALUES (3, 2, 'FON005', 'Grifo de Jardín', 'Unidad', 30, 45.00); 
 
-INSERT INTO Categoria(nombre, descripcion)
-VALUES ('Herramienta','Herramientas de construccion');
+INSERT INTO Cliente (nombre, nit)
+VALUES ('Jose Perez', '123456789');
 
-INSERT INTO Proveedor(nit, razonSocial, telefono, direccion, representante)
-VALUES (123456789, 'Ferretería El Tornillo', '76543210', 'Av. América #100', 'Luis Salazar');
+INSERT INTO Cliente (nombre, nit)
+VALUES ('María Gomez', '987654321');
+
+INSERT INTO Cliente (nombre, nit)
+VALUES ('Carlos Rivera', '1118989');
 
 -- Actualizar producto
-UPDATE Producto SET precio_venta = 34 WHERE codigo = 'HB7986';
+UPDATE Producto SET precioVenta = 34 WHERE codigo = 'HB7986';
 
 -- Eliminar lógicamente un producto
 UPDATE Producto SET estado = -1 WHERE codigo = 'HB7986';
@@ -209,3 +243,5 @@ SELECT * FROM Proveedor;
 SELECT * FROM Empleado;
 SELECT * FROM Usuario;
 SELECT * FROM Cliente;
+SELECT * FROM Venta;
+SELECT * FROM VentaDetalle;

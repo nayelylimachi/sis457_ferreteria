@@ -11,6 +11,14 @@ namespace ClnFerreteria
     {
         public static int insertar(Venta venta)
         {
+            // Rango mínimo permitido por SQL Server para datetime
+            DateTime minSqlDate = new DateTime(1753, 1, 1);
+
+            if (venta.fecha < minSqlDate)
+                venta.fecha = DateTime.Now;
+            if (venta.fechaRegistro < minSqlDate)
+                venta.fechaRegistro = DateTime.Now;
+
             using (var contexto = new FerreteriaEntities())
             {
                 contexto.Venta.Add(venta);
