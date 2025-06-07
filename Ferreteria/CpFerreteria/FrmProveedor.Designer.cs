@@ -30,6 +30,8 @@
         {
             this.lblTitulo = new System.Windows.Forms.Label();
             this.gbxDatos = new System.Windows.Forms.GroupBox();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.lblDireccion = new System.Windows.Forms.Label();
             this.txtCelular = new System.Windows.Forms.TextBox();
             this.lblCelular = new System.Windows.Forms.Label();
             this.lblSegundoApellido = new System.Windows.Forms.Label();
@@ -45,8 +47,9 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.gbxLista = new System.Windows.Forms.GroupBox();
             this.dgvLista = new System.Windows.Forms.DataGridView();
-            this.lblDireccion = new System.Windows.Forms.Label();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.txtParametro = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.lblParametro = new System.Windows.Forms.Label();
             this.gbxDatos.SuspendLayout();
             this.pnlAcciones.SuspendLayout();
             this.gbxLista.SuspendLayout();
@@ -56,7 +59,7 @@
             // lblTitulo
             // 
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(12, 9);
+            this.lblTitulo.Location = new System.Drawing.Point(166, 9);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(219, 31);
             this.lblTitulo.TabIndex = 2;
@@ -75,12 +78,29 @@
             this.gbxDatos.Controls.Add(this.txtNombres);
             this.gbxDatos.Controls.Add(this.lblNombre);
             this.gbxDatos.Controls.Add(this.txtCedulaIdentidad);
-            this.gbxDatos.Location = new System.Drawing.Point(12, 55);
+            this.gbxDatos.Location = new System.Drawing.Point(14, 96);
             this.gbxDatos.Name = "gbxDatos";
-            this.gbxDatos.Size = new System.Drawing.Size(547, 115);
+            this.gbxDatos.Size = new System.Drawing.Size(579, 115);
             this.gbxDatos.TabIndex = 15;
             this.gbxDatos.TabStop = false;
             this.gbxDatos.Text = "Datos";
+            // 
+            // txtDireccion
+            // 
+            this.txtDireccion.Location = new System.Drawing.Point(143, 90);
+            this.txtDireccion.MaxLength = 200;
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(396, 22);
+            this.txtDireccion.TabIndex = 19;
+            // 
+            // lblDireccion
+            // 
+            this.lblDireccion.AutoSize = true;
+            this.lblDireccion.Location = new System.Drawing.Point(73, 96);
+            this.lblDireccion.Name = "lblDireccion";
+            this.lblDireccion.Size = new System.Drawing.Size(67, 16);
+            this.lblDireccion.TabIndex = 18;
+            this.lblDireccion.Text = "Dirección:";
             // 
             // txtCelular
             // 
@@ -157,7 +177,7 @@
             this.pnlAcciones.Controls.Add(this.button1);
             this.pnlAcciones.Controls.Add(this.btnEditar);
             this.pnlAcciones.Controls.Add(this.btnNuevo);
-            this.pnlAcciones.Location = new System.Drawing.Point(12, 173);
+            this.pnlAcciones.Location = new System.Drawing.Point(43, 217);
             this.pnlAcciones.Name = "pnlAcciones";
             this.pnlAcciones.Size = new System.Drawing.Size(460, 47);
             this.pnlAcciones.TabIndex = 16;
@@ -217,9 +237,9 @@
             // gbxLista
             // 
             this.gbxLista.Controls.Add(this.dgvLista);
-            this.gbxLista.Location = new System.Drawing.Point(12, 241);
+            this.gbxLista.Location = new System.Drawing.Point(4, 270);
             this.gbxLista.Name = "gbxLista";
-            this.gbxLista.Size = new System.Drawing.Size(547, 180);
+            this.gbxLista.Size = new System.Drawing.Size(589, 180);
             this.gbxLista.TabIndex = 17;
             this.gbxLista.TabStop = false;
             this.gbxLista.Text = "Lista de Proveedores";
@@ -235,31 +255,48 @@
             this.dgvLista.ReadOnly = true;
             this.dgvLista.RowHeadersWidth = 51;
             this.dgvLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLista.Size = new System.Drawing.Size(528, 153);
+            this.dgvLista.Size = new System.Drawing.Size(577, 153);
             this.dgvLista.TabIndex = 0;
             // 
-            // lblDireccion
+            // txtParametro
             // 
-            this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(73, 96);
-            this.lblDireccion.Name = "lblDireccion";
-            this.lblDireccion.Size = new System.Drawing.Size(67, 16);
-            this.lblDireccion.TabIndex = 18;
-            this.lblDireccion.Text = "Dirección:";
+            this.txtParametro.Location = new System.Drawing.Point(10, 68);
+            this.txtParametro.MaxLength = 100;
+            this.txtParametro.Name = "txtParametro";
+            this.txtParametro.Size = new System.Drawing.Size(478, 22);
+            this.txtParametro.TabIndex = 18;
             // 
-            // txtDireccion
+            // btnBuscar
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(143, 90);
-            this.txtDireccion.MaxLength = 200;
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(396, 22);
-            this.txtDireccion.TabIndex = 19;
+            this.btnBuscar.Image = global::CpFerreteria.Properties.Resources.search;
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscar.Location = new System.Drawing.Point(495, 50);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnBuscar.Size = new System.Drawing.Size(98, 40);
+            this.btnBuscar.TabIndex = 19;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            // 
+            // lblParametro
+            // 
+            this.lblParametro.AutoSize = true;
+            this.lblParametro.Location = new System.Drawing.Point(7, 49);
+            this.lblParametro.Name = "lblParametro";
+            this.lblParametro.Size = new System.Drawing.Size(286, 16);
+            this.lblParametro.TabIndex = 20;
+            this.lblParametro.Text = "Buscar por NIT: Nombres, Apellidos o Usuario:";
             // 
             // FrmProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(573, 450);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(596, 450);
+            this.Controls.Add(this.lblParametro);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.txtParametro);
             this.Controls.Add(this.gbxLista);
             this.Controls.Add(this.pnlAcciones);
             this.Controls.Add(this.gbxDatos);
@@ -272,6 +309,7 @@
             this.gbxLista.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -296,5 +334,8 @@
         private System.Windows.Forms.DataGridView dgvLista;
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label lblDireccion;
+        private System.Windows.Forms.TextBox txtParametro;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Label lblParametro;
     }
 }

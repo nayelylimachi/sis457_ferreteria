@@ -41,6 +41,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
+            this.lblParametro = new System.Windows.Forms.Label();
+            this.txtParametro = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.gbxDatos.SuspendLayout();
             this.pnlAcciones.SuspendLayout();
             this.SuspendLayout();
@@ -63,7 +66,7 @@
             this.gbxDatos.Controls.Add(this.txtNombres);
             this.gbxDatos.Controls.Add(this.lblNombre);
             this.gbxDatos.Controls.Add(this.txtCedulaIdentidad);
-            this.gbxDatos.Location = new System.Drawing.Point(7, 62);
+            this.gbxDatos.Location = new System.Drawing.Point(7, 111);
             this.gbxDatos.Name = "gbxDatos";
             this.gbxDatos.Size = new System.Drawing.Size(547, 115);
             this.gbxDatos.TabIndex = 16;
@@ -128,7 +131,7 @@
             this.pnlAcciones.Controls.Add(this.button1);
             this.pnlAcciones.Controls.Add(this.btnEditar);
             this.pnlAcciones.Controls.Add(this.btnNuevo);
-            this.pnlAcciones.Location = new System.Drawing.Point(60, 183);
+            this.pnlAcciones.Location = new System.Drawing.Point(48, 232);
             this.pnlAcciones.Name = "pnlAcciones";
             this.pnlAcciones.Size = new System.Drawing.Size(460, 47);
             this.pnlAcciones.TabIndex = 17;
@@ -185,11 +188,46 @@
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.UseVisualStyleBackColor = true;
             // 
+            // lblParametro
+            // 
+            this.lblParametro.AutoSize = true;
+            this.lblParametro.Location = new System.Drawing.Point(4, 51);
+            this.lblParametro.Name = "lblParametro";
+            this.lblParametro.Size = new System.Drawing.Size(149, 16);
+            this.lblParametro.TabIndex = 18;
+            this.lblParametro.Text = "Buscar por CI: Nombres";
+            // 
+            // txtParametro
+            // 
+            this.txtParametro.Location = new System.Drawing.Point(7, 83);
+            this.txtParametro.MaxLength = 100;
+            this.txtParametro.Name = "txtParametro";
+            this.txtParametro.Size = new System.Drawing.Size(440, 22);
+            this.txtParametro.TabIndex = 19;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = global::CpFerreteria.Properties.Resources.search;
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscar.Location = new System.Drawing.Point(456, 65);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.btnBuscar.Size = new System.Drawing.Size(98, 40);
+            this.btnBuscar.TabIndex = 20;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // FrmVentaDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 233);
+            this.BackColor = System.Drawing.Color.LemonChiffon;
+            this.ClientSize = new System.Drawing.Size(562, 281);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.txtParametro);
+            this.Controls.Add(this.lblParametro);
             this.Controls.Add(this.pnlAcciones);
             this.Controls.Add(this.gbxDatos);
             this.Controls.Add(this.lblTitulo);
@@ -199,6 +237,7 @@
             this.gbxDatos.PerformLayout();
             this.pnlAcciones.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -217,5 +256,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Label lblParametro;
+        private System.Windows.Forms.TextBox txtParametro;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

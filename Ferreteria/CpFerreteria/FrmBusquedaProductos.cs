@@ -1,4 +1,5 @@
-﻿using ClnFerreteria;
+﻿using CadFerreteria;
+using ClnFerreteria;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static CpFerreteria.FrmBusquedaProductos;
 
 namespace CpFerreteria
 {
@@ -67,6 +69,21 @@ namespace CpFerreteria
                     return;
                 }
 
+                Producto productoEnBD = ProductoCln.obtener(id); // Asumo que tienes este método
+
+                if (productoEnBD == null)
+                {
+                    MessageBox.Show("El producto seleccionado no se encontró en la base de datos.", "Error de Producto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // 2. Comparar la cantidad deseada con el saldo disponible
+                if (cantidad > productoEnBD.saldo)
+                {
+                    MessageBox.Show($"No hay suficiente stock para el producto '{descripcion}'. Saldo disponible: {productoEnBD.saldo}", "Saldo Insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; // Detener la selección del producto
+                }
+
                 ProductoElegido = new ProductoSeleccionado
                 {
                     IdProducto = id,
@@ -97,6 +114,11 @@ namespace CpFerreteria
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void lblPrecioVenta_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

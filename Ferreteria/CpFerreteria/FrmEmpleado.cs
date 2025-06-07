@@ -28,7 +28,7 @@ namespace CpFerreteria
             dgvLista.Columns["estado"].Visible = false;
             dgvLista.Columns["usuario"].HeaderText = "Usuario";
             dgvLista.Columns["cedulaIdentidad"].HeaderText = "Cédula de Identidad";
-            dgvLista.Columns["nombres"].HeaderText = "Nombres";
+            dgvLista.Columns["nombre"].HeaderText = "Nombre";
             dgvLista.Columns["primerApellido"].HeaderText = "Primer Apellido";
             dgvLista.Columns["segundoApellido"].HeaderText = "Segundo Apellido";
             dgvLista.Columns["direccion"].HeaderText = "Dirección";
@@ -42,7 +42,7 @@ namespace CpFerreteria
         }
         private void FrmEmpleado_Load(object sender, EventArgs e)
         {
-            Size = new Size(835, 362);
+            Size = new Size(650, 362);
             listar();
             txtCelular.KeyPress += Util.onlyNumbers;
             txtNombres.KeyPress += Util.onlyLetters;
@@ -63,21 +63,26 @@ namespace CpFerreteria
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Size = new Size(835, 362);
+            Size = new Size(650, 362);
             limpiar();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             esNuevo = true;
-            Size = new Size(835, 487);
+            Size = new Size(650, 487);
             txtCedulaIdentidad.Focus();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            if (dgvLista.CurrentRow == null)
+            {
+                MessageBox.Show("Debe seleccionar un empleado para editar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Detiene la ejecución del método
+            }
             esNuevo = false;
-            Size = new Size(835, 487);
+            Size = new Size(650, 487);
 
             int index = dgvLista.CurrentCell.RowIndex;
             int id = Convert.ToInt32(dgvLista.Rows[index].Cells["id"].Value);
@@ -162,7 +167,10 @@ namespace CpFerreteria
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-        
-        
+
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

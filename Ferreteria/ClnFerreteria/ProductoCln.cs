@@ -69,6 +69,34 @@ namespace ClnFerreteria
                 return contexto.paProductoListar(parametro).ToList();
             }
         }
+        public static Producto obtener(int idProducto)
+        {
+            using (var contexto = new FerreteriaEntities())
+            {
+                return contexto.Producto.FirstOrDefault(p => p.id == idProducto && p.estado == 1);
+            }
+        }
+        // En tu clase ProductoCln.cs
+        public static int actualizarSaldo(Producto producto)
+        {
+            using (var contexto = new FerreteriaEntities())
+            {
+                // Adjuntar el objeto al contexto y marcarlo como modificado
+                contexto.Producto.Attach(producto);
+                contexto.Entry(producto).Property(p => p.saldo).IsModified = true;
+                contexto.Entry(producto).Property(p => p.usuarioRegistro).IsModified = true; 
 
+                try
+                {
+                    return contexto.SaveChanges(); // Devuelve las filas afectadas (1 si todo bien)
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error al actualizar saldo de producto: {ex.Message}");
+                    // Opcional: Console.WriteLine(ex.InnerException?.Message);
+                    return 0; // Indica fallo
+                }
+            }
+        }
     }
 }

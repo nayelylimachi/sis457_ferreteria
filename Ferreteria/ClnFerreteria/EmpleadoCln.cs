@@ -91,9 +91,11 @@ namespace ClnFerreteria
 
         public static Empleado obtenerUno(int id)
         {
-            using (var context = new FerreteriaEntities())
+            using (var contexto = new FerreteriaEntities())
             {
-                return context.Empleado.Where(x => x.id == id).FirstOrDefault();
+                return contexto.Empleado
+                               .Include("Usuario") 
+                               .FirstOrDefault(e => e.id == id && e.estado == 1);
             }
         }
 

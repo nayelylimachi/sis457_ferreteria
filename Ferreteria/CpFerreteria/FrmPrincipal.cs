@@ -43,5 +43,30 @@ namespace CpFerreteria
         {
             new FrmProveedor().ShowDialog();
         }
+
+        private void ribbonButton7_Click(object sender, EventArgs e)
+        {
+            new FrmEmpleado().ShowDialog();
+        }
+
+        private void btnCaClientes_Click(object sender, EventArgs e)
+        {
+            new FrmCliente().ShowDialog();
+        }
+
+        private void btnCaCategorias_Click(object sender, EventArgs e)
+        {
+            new FrmCategoria().ShowDialog();
+        }
+
+        private void ribbonButton5_Click(object sender, EventArgs e)
+        {
+            new FrmCliente().ShowDialog();
+        }
+
+        private void ribbonButton6_Click(object sender, EventArgs e)
+        {
+            new FrmProveedor().ShowDialog();
+        }
     }
 }

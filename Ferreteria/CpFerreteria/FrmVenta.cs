@@ -66,7 +66,40 @@ namespace CpFerreteria
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (string.IsNullOrWhiteSpace(txbEfectivo.Text))
+            {
+                MessageBox.Show("Debe agregar efectivo.", "Advertencia",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            // Intentar parsear el Total y el Efectivo
+            string totalTexto = txtTotal.Text.Replace("Bs. ", "").Trim();
+            decimal total;
+            decimal efectivo;
 
+            // Primero, validar si el campo total se puede convertir a número
+            if (!decimal.TryParse(totalTexto, out total))
+            {
+                MessageBox.Show("Error al leer el total de la venta. Verifique el formato.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Segundo, validar si el campo efectivo es un número válido y mayor que cero
+            if (!decimal.TryParse(txbEfectivo.Text.Replace(',', '.'), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out efectivo) || efectivo <= 0)
+            {
+                MessageBox.Show("El monto de efectivo debe ser un número válido y mayor que cero.", "Advertencia",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // --- ¡NUEVA VALIDACIÓN CLAVE PARA PAGO INSUFICIENTE! ---
+            if (efectivo < total)
+            {
+                MessageBox.Show("El efectivo ingresado es insuficiente para cubrir el total de la venta.", "Pago Insuficiente",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; // Detiene el proceso de registro de la venta
+            }
             // Si el cliente no existe, se crea uno nuevo
             if (clienteActual == null)
             {
@@ -112,6 +145,30 @@ namespace CpFerreteria
 
                 };
                 BusquedaProductoCln.insertar(detalle);
+
+                Producto productoEnDb = ProductoCln.obtener(producto.IdProducto);
+
+                if (productoEnDb != null)
+                {
+                    // Verifica que haya suficiente saldo antes de restar (aunque ya se hizo al agregar al carrito, es buena práctica)
+                    if (productoEnDb.saldo >= producto.Cantidad)
+                    {
+                        productoEnDb.saldo -= producto.Cantidad;
+                        // También actualiza los campos de auditoría si tu método de actualizar lo requiere
+                        productoEnDb.usuarioRegistro = Util.usuario.usuario1; // Usuario que realizó la modificación
+                                                                              // productoEnDb.fechaRegistro = DateTime.Now; // Esto es fecha de registro, no de modificación
+
+                        ProductoCln.actualizarSaldo(productoEnDb); // Necesitas crear este método
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Advertencia: Saldo insuficiente para el producto {productoEnDb.descripcion}. No se actualizó el inventario.", "Advertencia de Inventario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"Advertencia: Producto con ID {producto.IdProducto} no encontrado en la base de datos. No se actualizó el inventario.", "Advertencia de Inventario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
 
             // Limpiar después de registrar
@@ -126,6 +183,8 @@ namespace CpFerreteria
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             LimpiarFormulario();
+
+            
         }
 
         private void btnBuscarCliente_Click(object sender, EventArgs e)

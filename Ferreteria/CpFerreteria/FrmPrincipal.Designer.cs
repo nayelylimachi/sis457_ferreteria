@@ -98,7 +98,7 @@
             this.c1Ribbon1.Location = new System.Drawing.Point(0, 0);
             this.c1Ribbon1.Name = "c1Ribbon1";
             this.c1Ribbon1.QatHolder = this.ribbonQat1;
-            this.c1Ribbon1.Size = new System.Drawing.Size(1067, 161);
+            this.c1Ribbon1.Size = new System.Drawing.Size(1067, 201);
             this.c1Ribbon1.Tabs.Add(this.ribbonTab1);
             this.c1Ribbon1.Tabs.Add(this.ribbonTab2);
             this.c1Ribbon1.Tabs.Add(this.ribbonTab3);
@@ -160,6 +160,7 @@
             this.btnCaClientes.IconSet.Add(new C1.Framework.C1BitmapIcon(null, new System.Drawing.Size(32, 32), System.Drawing.Color.Transparent, ((System.Drawing.Image)(resources.GetObject("btnCaClientes.IconSet")))));
             this.btnCaClientes.Name = "btnCaClientes";
             this.btnCaClientes.Text = "Clientes";
+            this.btnCaClientes.Click += new System.EventHandler(this.btnCaClientes_Click);
             // 
             // btnCaCategorias
             // 
@@ -167,6 +168,7 @@
             this.btnCaCategorias.IconSet.Add(new C1.Framework.C1BitmapIcon(null, new System.Drawing.Size(32, 32), System.Drawing.Color.Transparent, ((System.Drawing.Image)(resources.GetObject("btnCaCategorias.IconSet")))));
             this.btnCaCategorias.Name = "btnCaCategorias";
             this.btnCaCategorias.Text = "Categorias";
+            this.btnCaCategorias.Click += new System.EventHandler(this.btnCaCategorias_Click);
             // 
             // btnCaVenta
             // 
@@ -251,6 +253,7 @@
             this.ribbonButton5.IconSet.Add(new C1.Framework.C1BitmapIcon(null, new System.Drawing.Size(32, 32), System.Drawing.Color.Transparent, ((System.Drawing.Image)(resources.GetObject("ribbonButton5.IconSet")))));
             this.ribbonButton5.Name = "ribbonButton5";
             this.ribbonButton5.Text = "Clientes";
+            this.ribbonButton5.Click += new System.EventHandler(this.ribbonButton5_Click);
             // 
             // ribbonButton6
             // 
@@ -258,6 +261,7 @@
             this.ribbonButton6.IconSet.Add(new C1.Framework.C1BitmapIcon(null, new System.Drawing.Size(32, 32), System.Drawing.Color.Transparent, ((System.Drawing.Image)(resources.GetObject("ribbonButton6.IconSet")))));
             this.ribbonButton6.Name = "ribbonButton6";
             this.ribbonButton6.Text = "Proveedores";
+            this.ribbonButton6.Click += new System.EventHandler(this.ribbonButton6_Click);
             // 
             // ribbonButton7
             // 
@@ -265,6 +269,7 @@
             this.ribbonButton7.IconSet.Add(new C1.Framework.C1BitmapIcon(null, new System.Drawing.Size(32, 32), System.Drawing.Color.Transparent, ((System.Drawing.Image)(resources.GetObject("ribbonButton7.IconSet")))));
             this.ribbonButton7.Name = "ribbonButton7";
             this.ribbonButton7.Text = "Empleados";
+            this.ribbonButton7.Click += new System.EventHandler(this.ribbonButton7_Click);
             // 
             // ribbonButton12
             // 
@@ -483,16 +488,16 @@
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 161);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 201);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1067, 393);
+            this.pictureBox1.Size = new System.Drawing.Size(1067, 353);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
             // FrmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(1067, 554);
