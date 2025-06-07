@@ -104,10 +104,6 @@ namespace CpFerreteria
             Close();
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            listar();
-        }
         private void txtParametro_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter) listar();
@@ -168,9 +164,9 @@ namespace CpFerreteria
             }
         }
 
-        private void btnBuscar_Click_1(object sender, EventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
-
+            listar();
         }
     }
 }

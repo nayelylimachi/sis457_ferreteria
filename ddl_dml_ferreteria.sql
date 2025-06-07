@@ -158,7 +158,7 @@ AS
 GO
 EXEC paProductoListar'Clavos';
 
-EXEC paEmpleadoListar'';
+EXEC paEmpleadoListar'na';
 
 -- Insertar empleado
 INSERT INTO Empleado(cedulaIdentidad, nombre, primerApellido, segundoApellido, direccion, celular, cargo)
