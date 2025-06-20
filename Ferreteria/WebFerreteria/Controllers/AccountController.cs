@@ -59,7 +59,7 @@ namespace WebFerreteria.Controllers
                 var authProperties = new AuthenticationProperties
                 {
                     AllowRefresh = true,
-                    ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(1),
+                    ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(10),
                     IsPersistent = model.recordarme
                 };
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,7 @@ using WebFerreteria.Models;
 
 namespace WebFerreteria.Controllers
 {
+    [Authorize]
     public class ProductosController : Controller
     {
         private readonly FinalFerreteriaContext _context;
@@ -77,7 +79,7 @@ namespace WebFerreteria.Controllers
             if (!string.IsNullOrEmpty(producto.Codigo) && !string.IsNullOrEmpty(producto.Descripcion) && producto.PrecioVenta > 0 && producto.Saldo >= 0 && !string.IsNullOrEmpty(producto.UnidadMedida)
                 && !string.IsNullOrEmpty(producto.Descripcion))
             {
-                producto.UsuarioRegistro = "admin";
+                producto.UsuarioRegistro = User.Identity.Name;
                 producto.FechaRegistro = DateTime.Now;
                 producto.Estado = 1;
                 _context.Add(producto);
@@ -174,7 +176,7 @@ namespace WebFerreteria.Controllers
             if (producto != null)
             {
                 producto.Estado = -1;
-                producto.UsuarioRegistro = "admin";
+                producto.UsuarioRegistro = User.Identity.Name;
                 //_context.Producto.Remove(producto);
             }
 
