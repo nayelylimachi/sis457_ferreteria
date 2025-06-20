@@ -130,3 +130,35 @@ ALTER TABLE Venta ADD estado SMALLINT NOT NULL DEFAULT 1;  -- -1ELIMINADO 0= INA
 ALTER TABLE VentaDetalle ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
 ALTER TABLE VentaDetalle ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
 ALTER TABLE VentaDetalle ADD estado SMALLINT NOT NULL DEFAULT 1;  -- -1ELIMINADO 0= INACTIVI  1= ACTIVO
+
+-- Insertar categorías
+INSERT INTO Categoria(nombre, descripcion)
+VALUES ('Electricidad','Productos eléctricos y cables');
+ 
+-- Insertar proveedores
+INSERT INTO Proveedor(nit, razonSocial, telefono, direccion, representante)
+VALUES (123456789, 'Ferretería El Tornillo', '76543210', 'Av. América #100', 'Luis Salazar');
+
+-- Insertar empleado
+INSERT INTO Empleado(cedulaIdentidad, nombre, primerApellido, segundoApellido, direccion, celular, cargo)
+VALUES ('7513756', 'Wilder Handel', '', 'Arciénega', 'Av. Circunvalación S/N', 67654550, 'Contador');
+
+INSERT INTO Empleado(cedulaIdentidad, nombre, primerApellido, segundoApellido, direccion, celular, cargo)
+VALUES ('10347355', 'Nayeli', 'Limachi', 'Peréz', 'Calle Loa N° 50', 71717171, 'Ejecutivo');
+
+-- Crear usuario para ese empleado
+INSERT INTO Usuario(idEmpleado, usuario, contraseña)
+VALUES (1, 'wharcienega', 'Bwk06E2GcnE7m+nHi+A3IA=='); -- Contraseña simple para pruebas
+
+INSERT INTO Usuario(idEmpleado, usuario, contraseña)
+VALUES (2, 'nlimachi', 'Bwk06E2GcnE7m+nHi+A3IA=='); -- Contraseña simple para pruebas
+
+-- Visualizar productos
+SELECT * FROM Producto;
+SELECT * FROM Categoria;
+SELECT * FROM Proveedor;
+SELECT * FROM Empleado;
+SELECT * FROM Usuario;
+SELECT * FROM Cliente;
+SELECT * FROM Venta;
+SELECT * FROM VentaDetalle;

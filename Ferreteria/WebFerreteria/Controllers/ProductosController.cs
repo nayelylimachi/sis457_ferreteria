@@ -50,8 +50,20 @@ namespace WebFerreteria.Controllers
         // GET: Productos/Create
         public IActionResult Create()
         {
-            ViewData["IdCategoria"] = new SelectList(_context.Categoria, "Id", "Id");
-            ViewData["IdProveedor"] = new SelectList(_context.Proveedor, "Id", "Id");
+            var categorias = _context.Categoria
+    .Where(c => c.Estado != -1)
+    .OrderBy(c => c.Nombre)
+    .ToList();
+            categorias.Insert(0, new Categoria { Id = 0, Nombre = "Seleccione una categoría" });
+            ViewData["IdCategoria"] = new SelectList(categorias, "Id", "Nombre");
+
+            var proveedores = _context.Proveedor
+                .Where(p => p.Estado != -1)
+                .OrderBy(p => p.RazonSocial)
+                .ToList();
+            proveedores.Insert(0, new Proveedor { Id = 0, RazonSocial = "Seleccione un proveedor" });
+            ViewData["IdProveedor"] = new SelectList(proveedores, "Id", "RazonSocial");
+
             return View();
         }
 
@@ -72,8 +84,8 @@ namespace WebFerreteria.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdCategoria"] = new SelectList(_context.Categoria, "Id", "Id", producto.IdCategoria);
-            ViewData["IdProveedor"] = new SelectList(_context.Proveedor, "Id", "Id", producto.IdProveedor);
+            ViewData["IdCategoria"] = new SelectList(_context.Categoria, "Id", "Nombre", producto.IdCategoria);
+            ViewData["IdProveedor"] = new SelectList(_context.Proveedor, "Id", "RazonSocial", producto.IdProveedor);
             return View(producto);
         }
 
@@ -90,8 +102,8 @@ namespace WebFerreteria.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdCategoria"] = new SelectList(_context.Categoria, "Id", "Id", producto.IdCategoria);
-            ViewData["IdProveedor"] = new SelectList(_context.Proveedor, "Id", "Id", producto.IdProveedor);
+            ViewData["IdCategoria"] = new SelectList(_context.Categoria, "Id", "Nombre", producto.IdCategoria);
+            ViewData["IdProveedor"] = new SelectList(_context.Proveedor, "Id", "RazonSocial", producto.IdProveedor);
             return View(producto);
         }
 
@@ -107,7 +119,8 @@ namespace WebFerreteria.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!string.IsNullOrEmpty(producto.Codigo) && !string.IsNullOrEmpty(producto.Descripcion) &&
+        producto.PrecioVenta > 0 && producto.Saldo >= 0 && !string.IsNullOrEmpty(producto.UnidadMedida))
             {
                 try
                 {
@@ -127,8 +140,8 @@ namespace WebFerreteria.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdCategoria"] = new SelectList(_context.Categoria, "Id", "Id", producto.IdCategoria);
-            ViewData["IdProveedor"] = new SelectList(_context.Proveedor, "Id", "Id", producto.IdProveedor);
+            ViewData["IdCategoria"] = new SelectList(_context.Categoria, "Id", "Nombre", producto.IdCategoria);
+            ViewData["IdProveedor"] = new SelectList(_context.Proveedor, "Id", "RazonSocial", producto.IdProveedor);
             return View(producto);
         }
 

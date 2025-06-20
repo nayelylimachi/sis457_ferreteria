@@ -54,10 +54,10 @@
                 @(item.Estado == 1 ? "Activo" : "Inactivo")
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdCategoriaNavigation.Id)
+                @Html.DisplayFor(modelItem => item.IdCategoriaNavigation.Nombre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdProveedorNavigation.Id)
+                @Html.DisplayFor(modelItem => item.IdProveedorNavigation.RazonSocial)
             </td>
             <td>
                     <a asp-action="Details" asp-route-id="@item.Id"><i class="fa-solid fa-eye"></i></a> |
