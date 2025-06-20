@@ -173,7 +173,9 @@ namespace WebFerreteria.Controllers
             var producto = await _context.Producto.FindAsync(id);
             if (producto != null)
             {
-                _context.Producto.Remove(producto);
+                producto.Estado = -1;
+                producto.UsuarioRegistro = "admin";
+                //_context.Producto.Remove(producto);
             }
 
             await _context.SaveChangesAsync();

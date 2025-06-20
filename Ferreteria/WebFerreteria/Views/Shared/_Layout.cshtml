@@ -30,6 +30,19 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Productos" asp-action="Index">Productos</a>
                         </li>
+                        @if (User.Identity.IsAuthenticated == true)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link me-4" href="#">@User.Identity.Name</a>
+                            </li>
+                            <li>@await Html.PartialAsync("_LogoutPartial")</li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link me-4" asp-controller="Account" asp-action="Login">Iniciar Sesión</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
