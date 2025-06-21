@@ -1,0 +1,101 @@
+﻿@model IEnumerable<WebFerreteria.Models.Empleado>
+
+@{
+    ViewData["Title"] = "Empleados";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="page-section" id="empleados">
+    <div class="container">
+        <div class="card shadow p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="mb-0">Empleados</h2>
+                <a asp-action="Create" class="btn btn-primary btn-xl text-uppercase">
+                    <i class="fa-solid fa-plus"></i> Crear Nuevo
+                </a>
+            </div>
+
+            <!-- Buscador -->
+            <div class="mb-3">
+                <input type="text" id="filtroEmpleado" class="form-control" placeholder="Buscar por nombre...">
+            </div>
+
+            <!-- Tabla -->
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>C.I.</th>
+                            <th>Nombre</th>
+                            <th>Primer Apellido</th>
+                            <th>Segundo Apellido</th>
+                            <th>Dirección</th>
+                            <th>Celular</th>
+                            <th>Cargo</th>
+                            <th>Usuario Registro</th>
+                            <th>Fecha Registro</th>
+                            <th>Estado</th>
+                            <th class="text-center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.CedulaIdentidad</td>
+                                <td>@item.Nombre</td>
+                                <td>@item.PrimerApellido</td>
+                                <td>@item.SegundoApellido</td>
+                                <td>@item.Direccion</td>
+                                <td>@item.Celular</td>
+                                <td>@item.Cargo</td>
+                                <td>@item.UsuarioRegistro</td>
+                                <td>@item.FechaRegistro.ToString("dd/MM/yyyy")</td>
+                                <td>
+                                    <span class="badge @(item.Estado == 1 ? "bg-success" : "bg-secondary")">
+                                        @(item.Estado == 1 ? "Activo" : "Inactivo")
+                                    </span>
+                                </td>
+                                <td class="text-center">
+                                    <div class="btn-group" role="group">
+                                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info" title="Ver">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </a>
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-warning" title="Editar">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger" title="Eliminar">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const input = document.getElementById("filtroEmpleado");
+        const filas = document.querySelectorAll("table tbody tr");
+
+        input.addEventListener("keyup", function () {
+            const texto = input.value.toLowerCase();
+
+            filas.forEach(fila => {
+                const cedula = fila.children[0].textContent.toLowerCase(); // Columna C.I. (primer td)
+                const nombre = fila.children[1].textContent.toLowerCase(); // Columna Nombre (segundo td)
+
+                if (cedula.includes(texto) || nombre.includes(texto)) { // Busca en C.I. o Nombre
+                    fila.style.display = "";
+                } else {
+                    fila.style.display = "none";
+                }
+            });
+        });
+    });
+</script>
