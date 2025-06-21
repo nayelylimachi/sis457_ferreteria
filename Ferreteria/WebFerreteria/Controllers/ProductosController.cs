@@ -79,6 +79,7 @@ namespace WebFerreteria.Controllers
             if (!string.IsNullOrEmpty(producto.Codigo) && !string.IsNullOrEmpty(producto.Descripcion) && producto.PrecioVenta > 0 && producto.Saldo >= 0 && !string.IsNullOrEmpty(producto.UnidadMedida)
                 && !string.IsNullOrEmpty(producto.Descripcion))
             {
+                producto.Codigo = producto.Codigo.ToUpper();
                 producto.UsuarioRegistro = User.Identity.Name;
                 producto.FechaRegistro = DateTime.Now;
                 producto.Estado = 1;
@@ -126,6 +127,7 @@ namespace WebFerreteria.Controllers
             {
                 try
                 {
+                    producto.Codigo = producto.Codigo.ToUpper();
                     _context.Update(producto);
                     await _context.SaveChangesAsync();
                 }
