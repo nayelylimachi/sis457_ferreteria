@@ -5,31 +5,43 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Login</h1>
+<section class="page-section" id="login">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8">
+                <div class="card shadow p-4 mt-5">
+                    <h2 class="text-center mb-4">Iniciar Sesión</h2>
 
-<form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" role="form">
-	<div class="font-weight-bold">Iniciar Sesión</div>
-	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-	<div class="form-group">
-		<label asp-for="usuario" class="control-label"></label>
-		<input asp-for="usuario" class="form-control" placeholder="Usuario" required />
-		<span asp-validation-for="usuario" class="text-danger"></span>
-	</div>
-	<div class="form-group">
-		<label asp-for="contraseña" class="control-label"></label>
-		<input asp-for="contraseña" type="password" class="form-control" placeholder="Contraseña" required />
-		<span asp-validation-for="contraseña" class="text-danger"></span>
-	</div>
-	<div class="row" style="margin-top:50px;">
-		<div class="col-xs-7">
-			<input type="checkbox" name="recordarme" id="recordarme" />
-			<label for="recordarme">Recordarme</label>
-		</div>
-		<div class="col-xs-5">
-			<input type="submit" value="Iniciar Sesión" class="btn btn-primary" />
-		</div>
-	</div>
-	<div class="col-xs-12 text-center">
-		<a asp-controller="Account" asp-action="ResetPassword">¿Se te olvidó la contraseña?</a>
-	</div>
-</form>
+                    <form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" role="form">
+                        <div asp-validation-summary="ModelOnly" class="text-danger text-center mb-3"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="usuario" class="form-label fw-bold"></label>
+                            <input asp-for="usuario" class="form-control" placeholder="Usuario" required />
+                            <span asp-validation-for="usuario" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="contraseña" class="form-label fw-bold"></label>
+                            <input asp-for="contraseña" type="password" class="form-control" placeholder="Contraseña" required />
+                            <span asp-validation-for="contraseña" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-check mb-3">
+                            <input type="checkbox" class="form-check-input" name="recordarme" id="recordarme" />
+                            <label for="recordarme" class="form-check-label">Recordarme</label>
+                        </div>
+
+                        <div class="d-grid mb-3">
+                            <button type="submit" class="btn btn-warning text-white fw-bold">Iniciar Sesión</button>
+                        </div>
+
+                        <div class="text-center">
+                            <a asp-controller="Account" asp-action="ResetPassword" class="text-warning fw-semibold">¿Se te olvidó la contraseña?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
