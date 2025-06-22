@@ -46,7 +46,7 @@ public class VentaController : Controller
     public IActionResult Create()
     {
         ViewBag.Productos = _context.Producto
-            .Where(p => p.Estado == 1)
+            .Where(p => p.Estado == 1 && p.Saldo > 0)
             .Select(p => new { p.Id, p.Descripcion, p.PrecioVenta, p.Saldo })
             .ToList();
 
@@ -89,7 +89,7 @@ public class VentaController : Controller
                 else
                 {
                     model.Cliente.Estado = 1;
-                    model.Cliente.UsuarioRegistro = "sistema";
+                    model.Cliente.UsuarioRegistro = User.Identity.Name;
                     model.Cliente.FechaRegistro = DateTime.Now;
                     _context.Cliente.Add(model.Cliente);
                     await _context.SaveChangesAsync();
@@ -101,7 +101,7 @@ public class VentaController : Controller
             model.Venta.IdUsuario = 1; // reemplazar con usuario en sesión
             model.Venta.Fecha = DateOnly.FromDateTime(DateTime.Now);
             model.Venta.FechaRegistro = DateTime.Now;
-            model.Venta.UsuarioRegistro = "sistema";
+            model.Venta.UsuarioRegistro = User.Identity.Name;
             model.Venta.Estado = 1;
             model.Venta.Transaccion = new Random().Next(100000, 999999);
             _context.Venta.Add(model.Venta);
@@ -113,7 +113,7 @@ public class VentaController : Controller
                 d.IdVenta = model.Venta.Id;
                 d.Total = d.Cantidad * d.PrecioUnitario;
                 d.FechaRegistro = DateTime.Now;
-                d.UsuarioRegistro = "sistema";
+                d.UsuarioRegistro = User.Identity.Name;
                 d.Estado = 1;
 
                 var producto = await _context.Producto.FindAsync(d.IdProducto);

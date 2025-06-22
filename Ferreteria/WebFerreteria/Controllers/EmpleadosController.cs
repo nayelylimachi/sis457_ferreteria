@@ -141,7 +141,8 @@ namespace WebFerreteria.Controllers
             var empleado = await _context.Empleado.FindAsync(id);
             if (empleado != null)
             {
-                _context.Empleado.Remove(empleado);
+                empleado.Estado = -1;
+                empleado.UsuarioRegistro=User.Identity.Name;
             }
 
             await _context.SaveChangesAsync();
