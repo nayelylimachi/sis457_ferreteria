@@ -17,54 +17,65 @@
     <link rel="stylesheet" href="~/WebFerreteria.styles.css" asp-append-version="true" />
 </head>
 <body id="page-top">
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand" href="/#page-top"><img src="~/assets/img/navbar-logo.svg" alt="..." /></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars ms-1"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="/#servicios">Servicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/#portfolio">Destacados</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/#historia">Sobre Nosotros</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/#equipo">Equipo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/#contact">Contacto</a></li>
-                    @if (User.Identity.IsAuthenticated == true)
-                    {
-                        <li class="nav-item"><a class="nav-link" asp-controller="Productos" asp-action="Index">Productos</a></li>
-                        <li class="nav-item"><a class="nav-link" asp-controller="Empleados" asp-action="Index">Empleados</a></li>
-                    }
-                    @if (User.Identity.IsAuthenticated == true)
-                    {
-                        <li class="nav-item"><a class="nav-link" href="#">Bienvenido @User.Identity.Name</a></li>
-                        <li>@await Html.PartialAsync("_LogoutPartial")</li>
-                    }
-                    else
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link me-4" asp-controller="Account" asp-action="Login">Iniciar Sesión</a>
-                        </li>
-                    }
-                </ul>
-            </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-75 fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="/#page-top">
+            <img src="~/assets/img/navbar-logo.svg" alt="..." />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menú <i class="fas fa-bars ms-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                <li class="nav-item"><a class="nav-link" href="/#servicios">Servicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="/#portfolio">Destacados</a></li>
+                <li class="nav-item"><a class="nav-link" href="/#historia">Sobre Nosotros</a></li>
+                <li class="nav-item"><a class="nav-link" href="/#equipo">Equipo</a></li>
+                <li class="nav-item"><a class="nav-link" href="/#contact">Contacto</a></li>
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="gestionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Gestión
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="gestionDropdown">
+                            <li><a class="dropdown-item" asp-controller="Productos" asp-action="Index">Productos</a></li>
+                            <li><a class="dropdown-item" asp-controller="Empleados" asp-action="Index">Empleados</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Venta" asp-action="Create"><i class="fas fa-cart-plus"></i> Nueva Venta</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Venta" asp-action="Index"><i class="fas fa-clipboard-list"></i> Ventas Registradas</a></li>
+
+                    <li class="nav-item"><a class="nav-link" href="#">Bienvenido @User.Identity.Name</a></li>
+                    <li>@await Html.PartialAsync("_LogoutPartial")</li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a class="nav-link me-4" asp-controller="Account" asp-action="Login">Iniciar Sesión</a>
+                    </li>
+                }
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
+@if (ViewData["Title"]?.ToString() == "Inicio")
+{
     <header class="masthead">
         <div class="container">
-            @if (ViewData["Title"] != null && ViewData["Title"].ToString() == "Inicio")
-            {
-                <div class="masthead-subheading">Bienvenido a la Ferreteria</div>
-                <div class="masthead-heading text-uppercase">Encantado de conocerte</div>
-                <a class="btn btn-primary btn-xl text-uppercase" href="/#servicios">Dime Más</a>
-            }
+            <div class="masthead-subheading">Bienvenido a la Ferretería</div>
+            <div class="masthead-heading text-uppercase">Encantado de conocerte</div>
+            <a class="btn btn-primary btn-xl text-uppercase" href="/#servicios">Dime Más</a>
         </div>
     </header>
+}
     <div>
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3" style="padding-top: 100px;">
             @RenderBody()
         </main>
+
     </div>
     <footer class="footer py-4">
         <div class="container">

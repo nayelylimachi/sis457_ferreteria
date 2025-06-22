@@ -1,0 +1,57 @@
+﻿@model WebFerreteria.Models.Venta
+
+@{
+    ViewData["Title"] = "Detalles de la Venta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="card rounded shadow">
+        <div class="card-body p-4">
+            <h2 class="card-title fw-bold mb-4">
+                <i class="fas fa-receipt"></i> Detalles de la Venta
+            </h2>
+            <hr class="mb-4" />
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <p><strong>Cliente:</strong> @Model.IdClienteNavigation.Nombre</p>
+                    <p><strong>Transacción:</strong> @Model.Transaccion</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Fecha:</strong> @Model.Fecha.ToShortDateString()</p>
+                    <p><strong>Usuario:</strong> @Model.IdUsuarioNavigation.Usuario1</p>
+                </div>
+            </div>
+
+            <h5 class="fw-bold">Productos vendidos</h5>
+            <table class="table table-bordered table-striped mt-3">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var d in Model.VentaDetalle)
+                    {
+                        <tr>
+                            <td>@d.IdProductoNavigation.Descripcion</td>
+                            <td>@d.Cantidad</td>
+                            <td>@d.PrecioUnitario.ToString("0.00")</td>
+                            <td>@d.Total.ToString("0.00")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <div class="text-center mt-4">
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="fa-solid fa-arrow-left"></i> Volver a la lista de ventas
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

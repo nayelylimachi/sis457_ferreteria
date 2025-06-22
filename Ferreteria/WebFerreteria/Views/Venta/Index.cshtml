@@ -1,0 +1,51 @@
+﻿@model List<WebFerreteria.Models.Venta>
+
+@{
+    ViewData["Title"] = "Ventas Registradas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="page-section" id="ventas">
+    <div class="container">
+        <div class="card shadow p-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold mb-0"><i class="fas fa-shopping-cart"></i> Ventas Registradas</h2>
+                <a asp-action="Create" class="btn btn-primary btn-xl text-uppercase">
+                    <i class="fa-solid fa-plus"></i> Registrar Nueva Venta
+                </a>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Cliente</th>
+                            <th>Fecha</th>
+                            <th>Usuario</th>
+                            <th>Transacción</th>
+                            <th class="text-center">Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var venta in Model)
+                        {
+                            <tr>
+                                <td>@venta.Id</td>
+                                <td>@venta.IdClienteNavigation.Nombre</td>
+                                <td>@venta.Fecha.ToShortDateString()</td>
+                                <td>@venta.IdUsuarioNavigation.Usuario1</td>
+                                <td>@venta.Transaccion</td>
+                                <td class="text-center">
+                                    <a asp-action="Detalles" asp-route-id="@venta.Id" class="btn btn-sm btn-outline-info" title="Ver Detalles">
+                                        <i class="fa-solid fa-eye"></i> Ver Detalle
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
