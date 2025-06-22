@@ -6,11 +6,14 @@
     var productos = ViewBag.Productos;
 }
 
-<div class="container mt-5">
-    <div class="card rounded shadow">
-        <div class="card-body p-4">
-            <div class="text-center mb-4">
-                <h2 class="fw-bold"><i class="fas fa-cart-plus"></i> Registrar Venta</h2>
+<section class="page-section" id="ventas">
+    <div class="container">
+        <div class="card shadow p-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="mb-0"><i class="fas fa-cart-plus"></i> Registrar Venta</h2>
+                <a asp-action="Index" class="btn btn-outline-secondary">
+                    <i class="fa-solid fa-arrow-left"></i> Volver
+                </a>
             </div>
 
             <form asp-action="Create" method="post">
@@ -26,28 +29,31 @@
                     </div>
                 </div>
 
-                <hr class="mb-4" />
-
-                <div class="mb-3">
-                    <label class="form-label">Agregar producto a la venta</label>
-                    <div class="input-group">
-                        <select id="selectProducto" class="form-select">
-                            <option value="">-- Seleccione producto --</option>
-                            @foreach (var p in productos)
-                            {
-                                <option value="@p.Id" data-precio="@p.PrecioVenta" data-descripcion="@p.Descripcion" data-saldo="@p.Saldo">
-                                    @p.Descripcion (Stock: @p.Saldo)
-                                </option>
-                            }
-                        </select>
-                        <button type="button" class="btn btn-success" onclick="agregarProducto()">
-                            <i class="fa-solid fa-plus"></i> Agregar
-                        </button>
+                <div class="mb-4">
+                    <label class="form-label">Buscar y agregar producto</label>
+                    <div class="row g-2">
+                        <div class="col-md-10">
+                            <select id="selectProducto" class="form-select select2">
+                                <option value="">-- Seleccione producto --</option>
+                                @foreach (var p in productos)
+                                {
+                                    <option value="@p.Id" data-precio="@p.PrecioVenta" data-descripcion="@p.Descripcion" data-saldo="@p.Saldo">
+                                        @p.Descripcion (Stock: @p.Saldo)
+                                    </option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn btn-primary w-100" onclick="agregarProducto()">
+                                <i class="fa-solid fa-plus"></i> Agregar
+                            </button>
+                        </div>
                     </div>
                 </div>
 
+
                 <div class="table-responsive mb-4">
-                    <table class="table table-bordered" id="tablaDetalle">
+                    <table class="table table-hover align-middle" id="tablaDetalle">
                         <thead class="table-dark">
                             <tr>
                                 <th>Producto</th>
@@ -84,7 +90,6 @@
                     </div>
                 </div>
 
-
                 <div class="row mt-4">
                     <div class="col-md-6 d-grid">
                         <button type="submit" class="btn btn-primary btn-lg">
@@ -92,17 +97,15 @@
                         </button>
                     </div>
                     <div class="col-md-6 d-grid">
-                        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary btn-lg">
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-danger btn-lg">
                             <i class="fa-solid fa-xmark"></i> Cancelar
                         </a>
                     </div>
                 </div>
-
-
             </form>
         </div>
     </div>
-</div>
+</section>
 
 @section Scripts {
     <script>
@@ -166,5 +169,19 @@
             const pago = parseFloat(document.querySelector('[name="Pago"]').value) || 0;
             document.getElementById("cambio").value = (pago - total).toFixed(2);
         }
+
+        // Filtro deslizante
+        document.addEventListener("DOMContentLoaded", function () {
+            const input = document.getElementById("filtroProducto");
+            const select = document.getElementById("selectProducto");
+
+            input.addEventListener("keyup", function () {
+                const texto = input.value.toLowerCase();
+                Array.from(select.options).forEach(opt => {
+                    const desc = opt.textContent.toLowerCase();
+                    opt.style.display = desc.includes(texto) ? "" : "none";
+                });
+            });
+        });
     </script>
 }
