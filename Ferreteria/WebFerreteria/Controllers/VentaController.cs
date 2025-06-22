@@ -50,6 +50,11 @@ public class VentaController : Controller
             .Select(p => new { p.Id, p.Descripcion, p.PrecioVenta, p.Saldo })
             .ToList();
 
+        ViewBag.Clientes = _context.Cliente
+            .Where(c => c.Estado == 1)
+            .Select(c => new { c.Id, c.Nombre, c.Nit })
+            .ToList();
+
         return View(new VentaViewModel());
     }
 
@@ -67,14 +72,28 @@ public class VentaController : Controller
 
         try
         {
-            // 1. Guardar cliente nuevo si corresponde
-            if (model.Cliente.Id == 0)
+            // Buscar o registrar cliente
+            if (model.Cliente.Id > 0)
             {
-                model.Cliente.Estado = 1;
-                model.Cliente.UsuarioRegistro = "sistema";
-                model.Cliente.FechaRegistro = DateTime.Now;
-                _context.Cliente.Add(model.Cliente);
-                await _context.SaveChangesAsync();
+                model.Cliente = await _context.Cliente.FindAsync(model.Cliente.Id);
+            }
+            else
+            {
+                var clienteExistente = _context.Cliente
+                    .FirstOrDefault(c => c.Nit == model.Cliente.Nit && c.Nombre == model.Cliente.Nombre && c.Estado == 1);
+
+                if (clienteExistente != null)
+                {
+                    model.Cliente = clienteExistente;
+                }
+                else
+                {
+                    model.Cliente.Estado = 1;
+                    model.Cliente.UsuarioRegistro = "sistema";
+                    model.Cliente.FechaRegistro = DateTime.Now;
+                    _context.Cliente.Add(model.Cliente);
+                    await _context.SaveChangesAsync();
+                }
             }
 
             // 2. Guardar venta

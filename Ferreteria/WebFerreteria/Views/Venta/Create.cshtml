@@ -11,23 +11,37 @@
         <div class="card shadow p-4">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2 class="mb-0"><i class="fas fa-cart-plus"></i> Registrar Venta</h2>
-                <a asp-action="Index" class="btn btn-outline-secondary">
-                    <i class="fa-solid fa-arrow-left"></i> Volver
-                </a>
             </div>
 
             <form asp-action="Create" method="post">
+
+                <!-- Buscar cliente (fila completa) -->
+                <div class="mb-4">
+                    <label class="form-label">Buscar cliente</label>
+                    <select id="selectCliente" class="form-select select2" onchange="cargarDatosCliente()">
+                        <option value="">-- Buscar --</option>
+                        @foreach (var cliente in ViewBag.Clientes)
+                        {
+                            <option value="@cliente.Id" data-nombre="@cliente.Nombre" data-nit="@cliente.Nit">
+                                @cliente.Nombre (@cliente.Nit)
+                            </option>
+                        }
+                    </select>
+                </div>
+
                 <div class="row mb-4">
                     <div class="col-md-6">
                         <label class="form-label">Nombre del cliente</label>
-                        <input type="hidden" name="Cliente.Id" value="0" />
-                        <input type="text" name="Cliente.Nombre" class="form-control" required placeholder="Ingrese el nombre del cliente" />
+                        <input type="text" id="clienteNombre" name="Cliente.Nombre" class="form-control" required placeholder="Ingrese el nombre del cliente" />
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">NIT o CI</label>
-                        <input type="text" name="Cliente.Nit" class="form-control" required placeholder="Ingrese el NIT o CI" />
+                        <input type="text" id="clienteNit" name="Cliente.Nit" class="form-control" required placeholder="Ingrese el NIT o CI" />
                     </div>
                 </div>
+
+                <input type="hidden" name="Cliente.Id" id="clienteId" value="0" />
+
 
                 <div class="mb-4">
                     <label class="form-label">Buscar y agregar producto</label>
@@ -183,5 +197,32 @@
                 });
             });
         });
+        $(document).ready(function () {
+                $('#selectCliente').select2({
+                    width: '100%',
+                    placeholder: "-- Buscar --",
+                    allowClear: true
+                });
+            });
+
+            function cargarDatosCliente() {
+                const select = document.getElementById("selectCliente");
+                const selected = select.options[select.selectedIndex];
+
+                const id = selected.value;
+                const nombre = selected.getAttribute("data-nombre");
+                const nit = selected.getAttribute("data-nit");
+
+                if (id) {
+                    document.getElementById("clienteNombre").value = nombre;
+                    document.getElementById("clienteNit").value = nit;
+                    document.getElementById("clienteId").value = id;
+                } else {
+                    document.getElementById("clienteNombre").value = "";
+                    document.getElementById("clienteNit").value = "";
+                    document.getElementById("clienteId").value = 0;
+                }
+            }
+
     </script>
 }
