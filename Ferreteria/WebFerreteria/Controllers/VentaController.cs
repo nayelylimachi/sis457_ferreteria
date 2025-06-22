@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebFerreteria.Models;
 using WebFerreteria.Models.ViewModels;
 
+[Authorize]
 public class VentaController : Controller
 {
     private readonly FinalFerreteriaContext _context;

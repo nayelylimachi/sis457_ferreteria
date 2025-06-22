@@ -148,10 +148,10 @@ VALUES ('10347355', 'Nayeli', 'Limachi', 'Peréz', 'Calle Loa N° 50', 71717171,
 
 -- Crear usuario para ese empleado
 INSERT INTO Usuario(idEmpleado, usuario, contraseña)
-VALUES (1, 'wharcienega', 'Bwk06E2GcnE7m+nHi+A3IA=='); -- Contraseña simple para pruebas
+VALUES (1, 'wharcienega', 'Bwk06E2GcnE7m+nHi+A3IA==');
 
 INSERT INTO Usuario(idEmpleado, usuario, contraseña)
-VALUES (2, 'nlimachi', 'Bwk06E2GcnE7m+nHi+A3IA=='); -- Contraseña simple para pruebas
+VALUES (2, 'nlimachi', 'Bwk06E2GcnE7m+nHi+A3IA==');
 
 -- Visualizar productos
 SELECT * FROM Producto;
