@@ -23,7 +23,7 @@ namespace WebFerreteria.Controllers
         // GET: Empleados
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Empleado.ToListAsync());
+            return View(await _context.Empleado.Where(e => e.Estado != -1).ToListAsync());
         }
 
         // GET: Empleados/Details/5
@@ -55,10 +55,17 @@ namespace WebFerreteria.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CedulaIdentidad,Nombre,PrimerApellido,SegundoApellido,Direccion,Celular,Cargo,UsuarioRegistro,FechaRegistro,Estado")] Empleado empleado)
+        public async Task<IActionResult> Create(Empleado empleado)
         {
-            if (ModelState.IsValid)
+            if (!string.IsNullOrEmpty(empleado.Nombre) &&
+                !string.IsNullOrEmpty(empleado.CedulaIdentidad) &&
+                !string.IsNullOrEmpty(empleado.PrimerApellido) &&
+                !string.IsNullOrEmpty(empleado.Cargo) &&
+                empleado.Celular != null)
             {
+                empleado.UsuarioRegistro = User.Identity.Name;
+                empleado.FechaRegistro = DateTime.Now;
+                empleado.Estado = 1;
                 _context.Add(empleado);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -143,11 +150,9 @@ namespace WebFerreteria.Controllers
             var empleado = await _context.Empleado.FindAsync(id);
             if (empleado != null)
             {
-                empleado.Estado = -1;
-                empleado.UsuarioRegistro=User.Identity.Name;
+                _context.Empleado.Remove(empleado); // Elimina físicamente
+                await _context.SaveChangesAsync();
             }
-
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
