@@ -20,7 +20,7 @@ public class VentaController : Controller
         var ventas = await _context.Venta
             .Include(v => v.IdClienteNavigation)
             .Include(v => v.IdUsuarioNavigation)
-            .OrderByDescending(v => v.Fecha)
+            .OrderBy(v => v.Id)
             .ToListAsync();
 
         return View(ventas);
